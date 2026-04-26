@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Contact Us | ELLOLING</title>
+<meta name="description" content="Get in touch with ELLOLING for website development, CCTV, automation, AMC, cybersecurity, and enterprise IT solutions. Free consultation available."/>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#1A1A2E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+
+<!-- Google Analytics placeholder -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+
+<style>
+.contact-page-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 64px;
+  align-items: start;
+}
+.contact-side { display: flex; flex-direction: column; gap: 0; }
+.contact-side__header { margin-bottom: 36px; }
+.contact-side__header h2 { font-size: 1.6rem; margin-bottom: 10px; }
+.contact-side__header p  { font-size: .9rem; color: var(--zoho-mid); line-height: 1.7; }
+
+.contact-detail {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--zoho-border);
+}
+.contact-detail:first-of-type { border-top: 1px solid var(--zoho-border); }
+.contact-detail__icon {
+  width: 44px; height: 44px; flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--zoho-red-light);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem;
+}
+.contact-detail h4 { font-size: .85rem; color: var(--zoho-light); font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: .5px; }
+.contact-detail p  { font-size: .9rem; color: var(--zoho-dark); font-weight: 700; line-height: 1.5; }
+.contact-detail a  { color: var(--zoho-red); }
+
+.hours-card {
+  margin-top: 28px;
+  background: var(--zoho-off);
+  border: 1px solid var(--zoho-border);
+  border-radius: var(--radius);
+  padding: 24px 22px;
+}
+.hours-card h4 { font-size: .9rem; margin-bottom: 14px; }
+.hours-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--zoho-border);
+  font-size: .85rem;
+}
+.hours-row:last-child { border-bottom: none; }
+.hours-row .day   { color: var(--zoho-mid); font-weight: 600; }
+.hours-row .time  { color: var(--zoho-dark); font-weight: 700; }
+.hours-row .open  { color: #0d7a45; }
+
+/* Form card */
+.contact-form-card {
+  background: white;
+  border: 1px solid var(--zoho-border);
+  border-radius: var(--radius);
+  padding: 44px 40px;
+  box-shadow: var(--shadow-md);
+}
+.contact-form-card h3 { font-size: 1.3rem; margin-bottom: 6px; }
+.contact-form-card > p { font-size: .875rem; color: var(--zoho-mid); margin-bottom: 28px; line-height: 1.6; }
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px;
+  background: var(--zoho-red);
+  color: white;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .2s, transform .15s, box-shadow .2s;
+  margin-top: 4px;
+}
+.submit-btn:hover {
+  background: var(--zoho-red-d);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(228,37,39,.3);
+}
+
+/* Map placeholder */
+.map-placeholder {
+  background: linear-gradient(135deg, var(--zoho-dark) 0%, var(--zoho-navy) 100%);
+  border-radius: var(--radius);
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 32px;
+  margin-top: 56px;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+.map-placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.04) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+.map-placeholder__inner { position: relative; z-index: 2; }
+.map-placeholder__pin { font-size: 3rem; margin-bottom: 12px; }
+.map-placeholder h4 { font-size: 1.1rem; color: white; margin-bottom: 6px; }
+.map-placeholder p  { font-size: .875rem; color: rgba(255,255,255,.6); }
+
+@media(max-width:768px){
+  .contact-page-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-form-card { padding: 28px 20px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav">
+  <a href="index.html" class="nav__logo">
+    <div class="nav__logo-mark">EL</div>
+    <span class="nav__logo-text">ELLO<span>LING</span></span>
+  </a>
+  <ul class="nav__links">
+    <li>
+      <a href="index.html#services">Services
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>
+      </a>
+      <div class="nav__dropdown">
+        <a href="web-development.html">Website & App Development</a>
+        <a href="cctv.html">CCTV & Surveillance</a>
+        
+        <a href="amc.html">AMC (Maintenance)</a>
+        <a href="amc.html#cybersecurity">Cybersecurity</a>
+        <a href="amc.html#enterprise">Enterprise</a>
+      </div>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="amc.html">AMC</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
+  </ul>
+  <div class="nav__actions">
+    <button class="btn-ghost" onclick="location.href='contact.html'">Get a Quote</button>
+    <a href="contact.html" class="btn-cta">Get Started
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+    </a>
+  </div>
+  <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav__mobile" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="index.html#web">Website & App Dev</a>
+  <a href="amc.html">AMC / Maintenance</a>
+  <a href="amc.html#cybersecurity">Cybersecurity</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html">Support</a>
+  <a href="contact.html" class="mobile-cta">Get Started →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <div class="page-hero__bread"><a href="index.html">Home</a>Contact</div>
+    <div class="section__label" style="margin-bottom:12px;">Let's Talk</div>
+    <h1>We'd love to hear<br/><span style="color:var(--zoho-red);">from you</span></h1>
+    <p>Whether you have a project in mind, need a quote, or just want to understand your options — we're here to help. No sales pressure, just honest advice.</p>
+  </div>
+</section>
+
+<!-- MAIN CONTACT SECTION -->
+<section class="section">
+  <div class="container">
+    <div class="contact-page-grid">
+
+      <!-- Left: info -->
+      <div class="contact-side reveal">
+        <div class="contact-side__header">
+          <h2>Get in Touch</h2>
+          <p>Reach out via phone, email, or the contact form and we'll respond within one business day. For urgent AMC issues, use our priority helpdesk number below.</p>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">📞</div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+917305792178">+91 73057 92178</a><br/>
+            AMC Helpdesk: <a href="tel:+917305792178">+91 73057 92178</a></p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">✉️</div>
+          <div>
+            <h4>Email</h4>
+            <p>
+              General: <a href="mailto:info@elloling.com">info@elloling.com</a><br/>
+              Sales: <a href="mailto:info@elloling.com">info@elloling.com</a><br/>
+              Support: <a href="mailto:support@elloling.com">support@elloling.com</a>
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">📍</div>
+          <div>
+            <h4>Office</h4>
+            <p>ELLOLING Corporation<br/>
+            No. 15A, Ganapathy Nagar, Moulivakkam,<br/>
+            Mangadu Road, Chennai — 600 125<br/>
+            Tamil Nadu, India</p>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail__icon">💬</div>
+          <div>
+            <h4>WhatsApp</h4>
+            <p><a href="https://wa.me/917305792178" target="_blank" rel="noopener">Chat with us on WhatsApp</a><br/>Quick queries answered within 1 hour</p>
+          </div>
+        </div>
+
+        <div class="hours-card">
+          <h4>📅 Office Hours</h4>
+          <div class="hours-row">
+            <span class="day">Monday – Friday</span>
+            <span class="time open">9:00 AM – 7:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Saturday</span>
+            <span class="time open">10:00 AM – 5:00 PM</span>
+          </div>
+          <div class="hours-row">
+            <span class="day">Sunday</span>
+            <span class="time" style="color:var(--zoho-light);">Closed (AMC emergencies: 24/7)</span>
+          </div>
+        </div>
+
+        <div class="map-placeholder" style="margin-top:28px;">
+          <div class="map-placeholder__inner">
+            <div class="map-placeholder__pin">📍</div>
+            <h4>Chennai, Tamil Nadu</h4>
+            <p>Serving all of South India<br/>On-site coverage across Tamil Nadu</p>
+            <a href="https://maps.google.com" target="_blank" rel="noopener" style="margin-top:14px;display:inline-block;background:var(--zoho-red);color:white;padding:10px 22px;border-radius:6px;font-weight:700;font-size:.85rem;">View on Google Maps →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: form -->
+      <div class="contact-form-card reveal">
+        <h3>Send Us a Message</h3>
+        <p>Fill in the form below and a member of our team will get back to you within one business day. For project quotes, we aim to respond within 4 hours.</p>
+
+        <form id="contact-form" novalidate>
+          <!-- Formspree config -->
+          <input type="hidden" name="_subject" value="New Contact Enquiry — ELLOLING"/>
+          <input type="hidden" name="_replyto" value=""/>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name *</label>
+              <input type="text" id="fname" name="fname" placeholder="Your first name" required/>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name *</label>
+              <input type="text" id="lname" name="lname" placeholder="Your last name" required/>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Work Email *</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required/>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" placeholder="+91 98XXX XXXXX"/>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="company">Company Name</label>
+            <input type="text" id="company" name="company" placeholder="Your company name"/>
+          </div>
+
+          <div class="form-group">
+            <label for="service">Service You're Interested In *</label>
+            <select id="service" name="service" required>
+              <option value="">— Select a service —</option>
+              <option>Website Development</option>
+              <option>Mobile App Development</option>
+              <option>CCTV & Surveillance</option>
+                  <option>AMC — Essential Plan</option>
+              <option>AMC — Professional Plan</option>
+              <option>AMC — Enterprise Plan</option>
+              <option>Cybersecurity</option>
+              <option>Enterprise IT Solutions</option>
+              <option>Multiple Services / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Approximate Budget</label>
+            <select id="budget" name="budget">
+              <option value="">— Select a range —</option>
+              <option>Under ₹25,000</option>
+              <option>₹25,000 – ₹1,00,000</option>
+              <option>₹1,00,000 – ₹5,00,000</option>
+              <option>₹5,00,000 – ₹10,00,000</option>
+              <option>₹10,00,000+</option>
+              <option>AMC Monthly Plan</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Tell Us About Your Project *</label>
+            <textarea id="message" name="message" placeholder="Briefly describe what you need, your timeline, and any specific requirements…" rows="5" required></textarea>
+          </div>
+
+          <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:20px;">
+            <input type="checkbox" id="consent" style="margin-top:3px;accent-color:var(--zoho-red);width:16px;height:16px;cursor:pointer;flex-shrink:0;"/>
+            <label for="consent" style="font-size:.82rem;color:var(--zoho-mid);cursor:pointer;line-height:1.5;">I agree to ELLOLING processing my details to respond to this enquiry. Your data is never shared with third parties. <a href="#" style="color:var(--zoho-red);">Privacy Policy</a>.</label>
+          </div>
+
+          <div style="display:flex;justify-content:flex-end;margin-top:8px;">
+            <button type="submit" class="submit-btn">
+              Send Message
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK OPTIONS -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">How We Can Help</div>
+      <h2 class="section__title">What brings you here today?</h2>
+      <div class="section__divider"></div>
+    </div>
+
+    <div class="services-grid">
+      <div class="svc-card reveal" style="--card-accent:var(--zoho-red);">
+        <div class="svc-card__icon" style="background:var(--zoho-red-light);">🌐</div>
+        <h3>Website / App Quote</h3>
+        <p>Get a fixed-price quote for your website or mobile app project. Most quotes delivered within 4 working hours of your enquiry.</p>
+        <a href="#contact-form" class="svc-card__link">Request Quote →</a>
+      </div>
+      <div class="svc-card reveal" style="--card-accent:#1565D8;">
+        <div class="svc-card__icon" style="background:#eff4ff;">🛡️</div>
+        <h3>AMC Consultation</h3>
+        <p>Not sure which maintenance plan fits your business? Book a free 30-minute discovery call with our team.</p>
+        <a href="#contact-form" class="svc-card__link">Book a Call →</a>
+      </div>
+      <div class="svc-card reveal" style="--card-accent:#0d7a45;">
+        <div class="svc-card__icon" style="background:#e6f7ef;">📞</div>
+        <h3>Emergency Support</h3>
+        <p>Existing AMC client with an urgent issue? Call our priority helpdesk directly — 24/7 for Professional and Enterprise plans.</p>
+        <a href="tel:+917305792178" class="svc-card__link">Call Now →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <div style="background:var(--zoho-red);color:white;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">EL</div>
+          <span style="font-size:1.2rem;font-weight:900;color:white;">ELLOLING</span>
+        </div>
+        <p>Your trusted technology partner for websites, apps, CCTV, automation, cybersecurity and enterprise IT.</p>
+        <div class="footer__social">
+          <a href="#">in</a><a href="#">𝕏</a><a href="#">ig</a><a href="#">fb</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#web">Web & App Dev</a></li>
+          <li><a href="index.html#cctv">CCTV</a></li>
+          <li></li>
+          <li><a href="about.html">About</a></li>
+    <li><a href="amc.html">AMC</a></li>
+          <li><a href="amc.html#cybersecurity">Cybersecurity</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="#">About Us</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="support.html">Support</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Quick Contact</h5>
+        <ul>
+          <li><a href="mailto:info@elloling.com">info@elloling.com</a></li>
+          <li><a href="tel:+917305792178">+91 73057 92178</a></li>
+          <li><a href="https://wa.me/917305792178">WhatsApp</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 ELLOLING Corporation. All rights reserved.</p>
+      <p>Made with ❤️ in Chennai, India</p>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+</body>
+</html>

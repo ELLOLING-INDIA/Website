@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Careers | ELLOLING Corporation</title>
+    <meta name="description" content="Join ELLOLING Corporation — we're building the future of technology services in Chennai and Tamil Nadu. View open roles and apply today." />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1A1A2E" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- GA4 -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+    <style>
+        /* ── Careers hero ── */
+        
+        .careers-hero {
+            padding: calc(var(--nav-h, 68px) + 60px) 0 60px;
+            background: linear-gradient(135deg, #fafbfd 0%, #f0f2f8 100%);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+        
+        .careers-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(#e0e4ec 1px, transparent 1px), linear-gradient(90deg, #e0e4ec 1px, transparent 1px);
+            background-size: 48px 48px;
+            opacity: .5;
+        }
+        
+        .careers-hero__inner {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .careers-hero h1 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            margin-bottom: 14px;
+            letter-spacing: -1px;
+        }
+        
+        .careers-hero h1 span {
+            color: #E42527;
+        }
+        
+        .careers-hero p {
+            font-size: 1.05rem;
+            color: #555b6e;
+            max-width: 580px;
+            margin: 0 auto 28px;
+            line-height: 1.75;
+        }
+        
+        .careers-hero__tags {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .careers-hero__tag {
+            background: white;
+            border: 1.5px solid #e0e4ec;
+            border-radius: 50px;
+            padding: 7px 18px;
+            font-size: .82rem;
+            font-weight: 700;
+            color: #555b6e;
+        }
+        /* ── Culture cards ── */
+        
+        .culture-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .culture-card {
+            background: white;
+            border: 1px solid #e0e4ec;
+            border-radius: 10px;
+            padding: 28px 24px;
+            text-align: center;
+            transition: transform .25s, box-shadow .25s;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .1);
+        }
+        
+        .culture-card__icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+        }
+        
+        .culture-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .culture-card p {
+            font-size: .875rem;
+            color: #555b6e;
+            line-height: 1.65;
+        }
+        /* ── Job cards ── */
+        
+        .job-card {
+            background: white;
+            border: 1px solid #e0e4ec;
+            border-radius: 10px;
+            padding: 28px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            margin-bottom: 16px;
+            transition: box-shadow .25s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--jc, #E42527);
+        }
+        
+        .job-card:hover {
+            box-shadow: 0 8px 32px rgba(0, 0, 0, .1);
+        }
+        
+        .job-card__left {
+            flex: 1;
+        }
+        
+        .job-card__dept {
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--jc, #E42527);
+            margin-bottom: 6px;
+        }
+        
+        .job-card h3 {
+            font-size: 1.05rem;
+            margin-bottom: 8px;
+        }
+        
+        .job-card p {
+            font-size: .875rem;
+            color: #555b6e;
+            line-height: 1.65;
+            margin-bottom: 12px;
+        }
+        
+        .job-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .job-tag {
+            background: #f5f6f8;
+            border: 1px solid #e0e4ec;
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: .78rem;
+            font-weight: 600;
+            color: #555b6e;
+        }
+        
+        .job-card__right {
+            flex-shrink: 0;
+        }
+        
+        .btn-apply {
+            background: #E42527;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: .875rem;
+            padding: 10px 22px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background .2s, transform .15s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn-apply:hover {
+            background: #c41e20;
+            transform: translateY(-1px);
+        }
+        
+        .btn-apply.outline {
+            background: transparent;
+            border: 2px solid #E42527;
+            color: #E42527;
+        }
+        
+        .btn-apply.outline:hover {
+            background: #E42527;
+            color: white;
+        }
+        /* ── Open to everything section ── */
+        
+        .open-banner {
+            background: linear-gradient(135deg, #1A1A2E 0%, #0F3460 100%);
+            border-radius: 10px;
+            padding: 40px 36px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 32px;
+        }
+        
+        .open-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        
+        .open-banner__inner {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .open-banner h3 {
+            color: white;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .open-banner p {
+            color: rgba(255, 255, 255, .65);
+            font-size: .95rem;
+            margin-bottom: 24px;
+            line-height: 1.7;
+        }
+        /* ── Application form ── */
+        
+        .apply-form-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 48px;
+            align-items: start;
+        }
+        
+        .apply-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+        }
+        
+        .apply-info p {
+            font-size: .9rem;
+            color: #555b6e;
+            line-height: 1.75;
+            margin-bottom: 14px;
+        }
+        
+        .apply-info ul {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding-left: 0;
+        }
+        
+        .apply-info ul li {
+            display: flex;
+            gap: 10px;
+            font-size: .875rem;
+            color: #555b6e;
+            align-items: flex-start;
+        }
+        
+        .apply-info ul li::before {
+            content: '✓';
+            color: #0d7a45;
+            font-weight: 900;
+            flex-shrink: 0;
+            margin-top: 1px;
+        }
+        
+        .apply-card {
+            background: white;
+            border: 1px solid #e0e4ec;
+            border-radius: 10px;
+            padding: 36px 32px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .08);
+        }
+        
+        .apply-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+        }
+        
+        .apply-card>p {
+            font-size: .875rem;
+            color: #555b6e;
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+        
+        .submit-btn-careers {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 11px 26px;
+            background: #E42527;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-family: 'Lato', sans-serif;
+            font-weight: 700;
+            font-size: .925rem;
+            cursor: pointer;
+            transition: background .2s, transform .15s, box-shadow .2s;
+            margin-top: 4px;
+        }
+        
+        .submit-btn-careers:hover {
+            background: #c41e20;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(228, 37, 39, .3);
+        }
+        
+        @media(max-width:1024px) {
+            .culture-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media(max-width:768px) {
+            .culture-grid {
+                grid-template-columns: 1fr;
+            }
+            .job-card {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .apply-form-wrap {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="main-nav">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">EL</div>
+            <span class="nav__logo-text">ELLO<span>LING</span></span>
+        </a>
+        <ul class="nav__links">
+            <li>
+                <a href="index.html#services">Services
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>
+      </a>
+                <div class="nav__dropdown">
+                    <a href="web-development.html">🌐 Web &amp; App Development</a>
+                    <a href="cctv.html">📷 CCTV &amp; Surveillance</a>
+                    <a href="amc.html">🛡️ AMC &amp; Maintenance</a>
+                    <a href="support.html">🔧 Technical Support</a>
+                </div>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="amc.html">AMC</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="careers.html" class="active">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+            <button class="btn-ghost" onclick="location.href='contact.html'">Get a Quote</button>
+            <a href="contact.html" class="btn-cta">Get Started
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+    </a>
+        </div>
+        <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="nav__mobile" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="web-development.html">Web &amp; App Development</a>
+        <a href="cctv.html">CCTV &amp; Surveillance</a>
+        <a href="amc.html">AMC / Maintenance</a>
+        <a href="support.html">Technical Support</a>
+        <a href="about.html">About Us</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="mobile-cta">Get Started →</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="careers-hero">
+        <div class="container careers-hero__inner">
+            <div class="page-hero__bread"><a href="index.html">Home</a>Careers</div>
+            <div class="section__label" style="margin-bottom:10px;">Join the Team</div>
+            <h1>Build the future with<br/><span>ELLOLING Corporation</span></h1>
+            <p>We are a growing team on a mission to make technology accessible for every business in Tamil Nadu. If you are passionate, driven, and want your work to genuinely matter — we want to hear from you.</p>
+            <div class="careers-hero__tags">
+                <span class="careers-hero__tag">🏙️ Chennai-Based</span>
+                <span class="careers-hero__tag">🤝 Collaborative Culture</span>
+                <span class="careers-hero__tag">📈 Real Growth</span>
+                <span class="careers-hero__tag">💡 Learn Every Day</span>
+                <span class="careers-hero__tag">🎯 Ownership &amp; Impact</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- CULTURE -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Life at ELLOLING</div>
+                <h2 class="section__title">Why people love working here</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="culture-grid">
+                <div class="culture-card reveal">
+                    <div class="culture-card__icon">🚀</div>
+                    <h3>Real Ownership</h3>
+                    <p>From day one, you own your work. No micromanagement — we hire people we trust and give them the space to deliver and grow.</p>
+                </div>
+                <div class="culture-card reveal">
+                    <div class="culture-card__icon">📚</div>
+                    <h3>Continuous Learning</h3>
+                    <p>Technology changes fast. We invest in our team's growth — workshops, tools, courses, and hands-on exposure to diverse projects.</p>
+                </div>
+                <div class="culture-card reveal">
+                    <div class="culture-card__icon">🤝</div>
+                    <h3>Collaborative Team</h3>
+                    <p>A small team means every voice counts. Ideas are heard, decisions are shared, and wins are celebrated together.</p>
+                </div>
+                <div class="culture-card reveal">
+                    <div class="culture-card__icon">💰</div>
+                    <h3>Fair Compensation</h3>
+                    <p>We believe in paying people fairly for what they bring. Transparent compensation with clear paths for growth and performance-based rewards.</p>
+                </div>
+                <div class="culture-card reveal">
+                    <div class="culture-card__icon">🎯</div>
+                    <h3>Meaningful Work</h3>
+                    <p>Every project has real impact — a business grows, a system gets secured, a client's life gets easier. Your work matters here.</p>
+                </div>
+                <div class="culture-card reveal">
+                    <div class="culture-card__icon">🏡</div>
+                    <h3>Flexible &amp; Human</h3>
+                    <p>We are a people-first company. We understand life happens — we focus on output and trust our team to manage their time well.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OPEN ROLES -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Open Positions</div>
+                <h2 class="section__title">Current Openings</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">We are growing and looking for talented individuals who share our passion for technology and client success.</p>
+            </div>
+
+            <!-- Web Developer -->
+            <div class="job-card reveal" style="--jc:#1565D8;">
+                <div class="job-card__left">
+                    <div class="job-card__dept">Web Development</div>
+                    <h3>Web Developer / Full Stack Developer</h3>
+                    <p>Build and maintain client websites and web applications. Work across HTML, CSS, JavaScript and backend technologies. Collaborate directly with clients and our founder.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Full Time</span>
+                        <span class="job-tag">Chennai</span>
+                        <span class="job-tag">HTML / CSS / JS</span>
+                        <span class="job-tag">React or PHP</span>
+                        <span class="job-tag">0–3 years</span>
+                    </div>
+                </div>
+                <div class="job-card__right">
+                    <a href="#apply" class="btn-apply">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- CCTV Technician -->
+            <div class="job-card reveal" style="--jc:#E87722;">
+                <div class="job-card__left">
+                    <div class="job-card__dept">CCTV &amp; Surveillance</div>
+                    <h3>CCTV Installation Technician</h3>
+                    <p>Install, configure and maintain CCTV systems for home and business clients across Chennai. Carry out site surveys and provide technical support for surveillance equipment.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Full Time</span>
+                        <span class="job-tag">Field Role – Chennai</span>
+                        <span class="job-tag">Hikvision / Dahua</span>
+                        <span class="job-tag">IP Cameras</span>
+                        <span class="job-tag">0–2 years</span>
+                    </div>
+                </div>
+                <div class="job-card__right">
+                    <a href="#apply" class="btn-apply">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- IT Support -->
+            <div class="job-card reveal" style="--jc:#7B2FBE;">
+                <div class="job-card__left">
+                    <div class="job-card__dept">IT Support &amp; AMC</div>
+                    <h3>IT Support Engineer</h3>
+                    <p>Provide helpdesk and on-site IT support to AMC clients. Handle hardware troubleshooting, network issues, software installations, and patch management. Be the first point of contact for client issues.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Full Time</span>
+                        <span class="job-tag">Chennai</span>
+                        <span class="job-tag">Networking</span>
+                        <span class="job-tag">Windows / Linux</span>
+                        <span class="job-tag">0–3 years</span>
+                    </div>
+                </div>
+                <div class="job-card__right">
+                    <a href="#apply" class="btn-apply">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Digital Marketing -->
+            <div class="job-card reveal" style="--jc:#0d7a45;">
+                <div class="job-card__left">
+                    <div class="job-card__dept">Digital Marketing</div>
+                    <h3>Digital Marketing Executive</h3>
+                    <p>Manage ELLOLING's own digital presence and support client campaigns. Handle SEO, social media, Google Ads, and content creation. Ideal for someone who wants to grow in the digital marketing space.</p>
+                    <div class="job-tags">
+                        <span class="job-tag">Part Time / Full Time</span>
+                        <span class="job-tag">Hybrid – Chennai</span>
+                        <span class="job-tag">SEO / SEM</span>
+                        <span class="job-tag">Social Media</span>
+                        <span class="job-tag">Freshers Welcome</span>
+                    </div>
+                </div>
+                <div class="job-card__right">
+                    <a href="#apply" class="btn-apply">Apply Now</a>
+                </div>
+            </div>
+
+            <!-- Internships -->
+            <div class="open-banner reveal">
+                <div class="open-banner__inner">
+                    <h3>Open to Internships &amp; Freshers</h3>
+                    <p>Don't see your exact role above? We are always open to hearing from passionate freshers, interns, and freelancers who want to be part of the ELLOLING journey. Send us your resume and tell us what you bring to the table.</p>
+                    <a href="#apply" class="btn-white" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;font-size:.9rem;">Send Open Application →</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- APPLICATION FORM -->
+    <section class="section" id="apply">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Apply Now</div>
+                <h2 class="section__title">Send us your application</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div class="apply-form-wrap">
+                <div class="apply-info reveal">
+                    <h3>What to expect</h3>
+                    <p>We review every application personally. No automated rejections — if you show genuine interest and potential, we will reach out.</p>
+                    <p>Our hiring process is simple:</p>
+                    <ul>
+                        <li>Submit your application below</li>
+                        <li>We review and respond within 3–5 working days</li>
+                        <li>A short introductory call with Akash Bill Bright</li>
+                        <li>A practical task or technical discussion depending on the role</li>
+                        <li>Offer and onboarding</li>
+                    </ul>
+                    <div style="margin-top:24px;background:#f5f6f8;border:1px solid #e0e4ec;border-radius:8px;padding:20px;">
+                        <div style="font-size:.85rem;font-weight:700;color:#1A1A2E;margin-bottom:6px;">📧 Direct Applications</div>
+                        <p style="font-size:.85rem;color:#555b6e;margin:0;">You can also email your resume directly to <a href="mailto:info@elloling.com" style="color:#E42527;font-weight:700;">info@elloling.com</a> with the subject line: <em>Application — [Role Name]</em></p>
+                    </div>
+                </div>
+                <div class="apply-card reveal">
+                    <h3>Application Form</h3>
+                    <p>Fill in the details below. We'll be in touch within 3–5 working days.</p>
+                    <form id="contact-form" novalidate>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Full Name *</label>
+                                <input type="text" name="name" placeholder="Your full name" required/>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number *</label>
+                                <input type="tel" name="phone" placeholder="+91 73057 92178" required/>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address *</label>
+                            <input type="email" name="email" placeholder="your@email.com" required/>
+                        </div>
+                        <div class="form-group">
+                            <label>Role You're Applying For *</label>
+                            <select name="role" required>
+              <option value="">— Select a role —</option>
+              <option>Web Developer / Full Stack Developer</option>
+              <option>CCTV Installation Technician</option>
+              <option>IT Support Engineer</option>
+              <option>Digital Marketing Executive</option>
+              <option>Internship (any department)</option>
+              <option>Open Application — Other</option>
+            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Years of Experience</label>
+                            <select name="experience">
+              <option value="">— Select —</option>
+              <option>Fresher / 0 years</option>
+              <option>Less than 1 year</option>
+              <option>1–2 years</option>
+              <option>2–3 years</option>
+              <option>3–5 years</option>
+              <option>5+ years</option>
+            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tell Us About Yourself *</label>
+                            <textarea name="message" rows="5" placeholder="Tell us a bit about your background, what you are passionate about, and why you want to join ELLOLING Corporation…" required></textarea>
+                        </div>
+                        <div style="display:flex;align-items:flex-start;gap:10px;margin-bottom:16px;">
+                            <input type="checkbox" id="career-consent" style="margin-top:3px;accent-color:#E42527;width:16px;height:16px;cursor:pointer;flex-shrink:0;" />
+                            <label for="career-consent" style="font-size:.82rem;color:#555b6e;cursor:pointer;line-height:1.5;">I agree to ELLOLING Corporation retaining my application data for up to 6 months. Your data is used only for recruitment purposes and never shared with third parties.</label>
+                        </div>
+                        <div style="display:flex;justify-content:flex-end;">
+                            <button type="submit" class="submit-btn-careers">
+              Submit Application
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+        <div class="container cta-band__inner">
+            <h2>Not looking for a job? Still want to collaborate?</h2>
+            <p>We are open to freelance partnerships, referrals, and business collaborations. Get in touch.</p>
+            <a href="contact.html" class="btn-white">Contact Us →</a>
+            <a href="about.html" class="btn-outline-white">About ELLOLING</a>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="wa-float" href="https://wa.me/917305792178" title="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__support">
+                <div class="footer__support-item"><span class="footer__support-icon">📞</span>
+                    <div>
+                        <h5>Call Us</h5>
+                        <p>Mon–Sat, 9am–7pm IST</p><a href="tel:+917305792178">+91 73057 92178</a></div>
+                </div>
+                <div class="footer__support-item"><span class="footer__support-icon">✉️</span>
+                    <div>
+                        <h5>Hiring Queries</h5>
+                        <p>Apply or ask us anything</p><a href="mailto:info@elloling.com">info@elloling.com</a></div>
+                </div>
+                <div class="footer__support-item"><span class="footer__support-icon">💬</span>
+                    <div>
+                        <h5>WhatsApp</h5>
+                        <p>Quick replies within 1 hour</p><a href="https://wa.me/917305792178">Chat Now →</a></div>
+                </div>
+            </div>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                        <div style="background:#E42527;color:white;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">EL</div>
+                        <span style="font-size:1.2rem;font-weight:900;color:white;">ELLOLING</span>
+                    </div>
+                    <p>Your trusted technology partner for websites, apps, CCTV and IT maintenance — serving businesses across Tamil Nadu since 2023.</p>
+                    <div class="footer__social"><a href="#">in</a><a href="#">ig</a><a href="#">fb</a><a href="https://wa.me/917305792178">wa</a></div>
+                </div>
+                <div class="footer__col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="web-development.html">Web &amp; App Dev</a></li>
+                        <li><a href="cctv.html">CCTV</a></li>
+                        <li><a href="amc.html">AMC</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 ELLOLING Corporation. All rights reserved. | No. 15A, Ganapathy Nagar, Moulivakkam, Mangadu Road, Chennai — 600 125</p>
+                <p><a href="#">Privacy</a> · <a href="#">Terms</a> · GST Registered</p>
+            </div>
+        </div>
+    </footer>
+    <script src="nav.js"></script>
+</body>
+
+</html>

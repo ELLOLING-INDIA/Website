@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>About Us | ELLOLING Corporation</title>
+    <meta name="description" content="Learn about ELLOLING Corporation — our story, mission, values, and the team behind Chennai's trusted technology partner." />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1A1A2E" />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <!-- GA4 -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+    <style>
+        .about-hero {
+            padding: calc(var(--nav-h, 68px) + 64px) 0 64px;
+            background: linear-gradient(135deg, #0F0F1A 0%, #1A1A2E 60%, #0F3460 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, .03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .03) 1px, transparent 1px);
+            background-size: 48px 48px;
+        }
+        
+        .about-hero__inner {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+        
+        .about-hero__tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(228, 37, 39, .15);
+            border: 1px solid rgba(228, 37, 39, .3);
+            color: #ff6b6b;
+            font-weight: 700;
+            font-size: .78rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 18px;
+        }
+        
+        .about-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 18px;
+            letter-spacing: -1px;
+        }
+        
+        .about-hero h1 span {
+            color: #E42527;
+        }
+        
+        .about-hero__divider {
+            width: 48px;
+            height: 3px;
+            background: #E42527;
+            margin-bottom: 20px;
+            border-radius: 2px;
+        }
+        
+        .about-hero p {
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, .7);
+            line-height: 1.75;
+            margin-bottom: 28px;
+        }
+        
+        .about-hero__actions {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        /* EL logo mark in hero */
+        
+        .about-logo-mark {
+            background: #13131f;
+            border: 1px solid #252540;
+            border-radius: 20px;
+            padding: 48px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-logo-mark::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #E42527;
+        }
+        
+        .about-logo-mark::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #E42527;
+        }
+        
+        .el-big {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            font-size: 5.5rem;
+            font-weight: 700;
+            color: white;
+            line-height: 1;
+            letter-spacing: -3px;
+        }
+        
+        .el-dot-big {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background: #E42527;
+            margin-left: 3px;
+            vertical-align: middle;
+            position: relative;
+            top: -12px;
+        }
+        
+        .about-logo-mark .wm {
+            font-size: .85rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, .9);
+            letter-spacing: 6px;
+            margin-top: 12px;
+        }
+        
+        .about-logo-mark .st {
+            font-size: .65rem;
+            font-weight: 300;
+            color: #444466;
+            letter-spacing: 4px;
+            margin-top: 4px;
+        }
+        
+        .about-logo-mark .since {
+            margin-top: 20px;
+            font-size: .75rem;
+            color: rgba(255, 255, 255, .3);
+            letter-spacing: 1px;
+        }
+        /* Story section */
+        
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+        
+        .story-text h2 {
+            font-size: 1.9rem;
+            margin-bottom: 16px;
+            letter-spacing: -.5px;
+        }
+        
+        .story-text p {
+            font-size: .95rem;
+            color: var(--zoho-mid, #555b6e);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+        
+        .story-text .highlight {
+            color: #E42527;
+            font-weight: 700;
+        }
+        
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        
+        .tl-item {
+            display: flex;
+            gap: 20px;
+            padding-bottom: 28px;
+            position: relative;
+        }
+        
+        .tl-item:last-child {
+            padding-bottom: 0;
+        }
+        
+        .tl-line {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        
+        .tl-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #E42527;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+        
+        .tl-bar {
+            width: 2px;
+            flex: 1;
+            background: #e0e4ec;
+            margin-top: 6px;
+        }
+        
+        .tl-item:last-child .tl-bar {
+            display: none;
+        }
+        
+        .tl-year {
+            font-size: .75rem;
+            font-weight: 900;
+            color: #E42527;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
+        }
+        
+        .tl-title {
+            font-size: .95rem;
+            font-weight: 700;
+            color: var(--zoho-dark, #1A1A2E);
+            margin-bottom: 4px;
+        }
+        
+        .tl-desc {
+            font-size: .85rem;
+            color: var(--zoho-mid, #555b6e);
+            line-height: 1.6;
+        }
+        /* Values */
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .value-card {
+            background: white;
+            border: 1px solid #e0e4ec;
+            border-radius: 10px;
+            padding: 32px 26px;
+            text-align: center;
+            transition: transform .25s, box-shadow .25s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--vc-color, #E42527);
+            transform: scaleX(0);
+            transition: transform .3s;
+            transform-origin: left;
+        }
+        
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .1);
+        }
+        
+        .value-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .value-card__icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+        
+        .value-card h3 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .value-card p {
+            font-size: .875rem;
+            color: #555b6e;
+            line-height: 1.65;
+        }
+        /* Team */
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        .team-card {
+            background: white;
+            border: 1px solid #e0e4ec;
+            border-radius: 10px;
+            padding: 32px 24px;
+            text-align: center;
+            transition: transform .25s, box-shadow .25s;
+        }
+        
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, .1);
+        }
+        
+        .team-card__avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background: #1A1A2E;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 900;
+            margin: 0 auto 16px;
+            border: 3px solid #E42527;
+        }
+        
+        .team-card h4 {
+            font-size: 1.05rem;
+            margin-bottom: 4px;
+        }
+        
+        .team-card__role {
+            font-size: .82rem;
+            color: #E42527;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: .3px;
+        }
+        
+        .team-card p {
+            font-size: .84rem;
+            color: #555b6e;
+            line-height: 1.6;
+        }
+        /* Stats band */
+        
+        .about-stats {
+            background: #1A1A2E;
+            padding: 52px 0;
+        }
+        
+        .about-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        .about-stat {
+            text-align: center;
+            padding: 16px 24px;
+            border-right: 1px solid rgba(255, 255, 255, .08);
+        }
+        
+        .about-stat:last-child {
+            border-right: none;
+        }
+        
+        .about-stat__num {
+            font-size: 2.6rem;
+            font-weight: 900;
+            color: white;
+            letter-spacing: -1px;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .about-stat__num span {
+            color: #E42527;
+        }
+        
+        .about-stat__label {
+            font-size: .875rem;
+            color: rgba(255, 255, 255, .5);
+            font-weight: 600;
+        }
+        
+        @media(max-width:1024px) {
+            .about-hero__inner {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .about-logo-mark {
+                max-width: 320px;
+            }
+            .story-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .about-stat {
+                border-right: none;
+                border-bottom: 1px solid rgba(255, 255, 255, .08);
+            }
+        }
+        
+        @media(max-width:768px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="main-nav">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">EL</div>
+            <span class="nav__logo-text">ELLO<span>LING</span></span>
+        </a>
+        <ul class="nav__links">
+            <li>
+                <a href="index.html#services">Services
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>
+      </a>
+                <div class="nav__dropdown">
+                    <a href="web-development.html">🌐 Web &amp; App Development</a>
+                    <a href="cctv.html">📷 CCTV &amp; Surveillance</a>
+                    <a href="amc.html">🛡️ AMC &amp; Maintenance</a>
+                    <a href="support.html">🔧 Technical Support</a>
+                </div>
+            </li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="amc.html">AMC</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+            <button class="btn-ghost" onclick="location.href='contact.html'">Get a Quote</button>
+            <a href="contact.html" class="btn-cta">Get Started
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+    </a>
+        </div>
+        <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="nav__mobile" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="web-development.html">Web &amp; App Development</a>
+        <a href="cctv.html">CCTV &amp; Surveillance</a>
+        <a href="amc.html">AMC / Maintenance</a>
+        <a href="support.html">Technical Support</a>
+        <a href="about.html">About Us</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="careers.html">Careers</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="mobile-cta">Get Started →</a>
+    </div>
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <div class="container">
+            <div class="about-hero__inner">
+                <div>
+                    <div class="about-hero__tag">Our Story</div>
+                    <h1>We are <span>ELLOLING</span><br/>Corporation</h1>
+                    <div class="about-hero__divider"></div>
+                    <p>Founded in September 2023 in Chennai, Tamil Nadu — ELLOLING Corporation was built on one belief: that every business, regardless of size, deserves access to reliable, affordable, and professional technology solutions.</p>
+                    <p>From a single founder with a laptop and a clear mission, we've grown into a team serving clients across Tamil Nadu — building websites, installing CCTV systems, managing IT infrastructure, and building long-term technology partnerships.</p>
+                    <div class="about-hero__actions">
+                        <a href="contact.html" class="btn-cta" style="font-size:.95rem;">Work With Us →</a>
+                        <a href="careers.html" style="color:rgba(255,255,255,.7);font-weight:700;font-size:.9rem;display:inline-flex;align-items:center;gap:6px;text-decoration:none;transition:color .2s;">Join Our Team →</a>
+                    </div>
+                </div>
+                <div style="display:flex;justify-content:center;">
+                    <div class="about-logo-mark">
+                        <div class="el-big">EL<span class="el-dot-big"></span></div>
+                        <div class="wm">ELLOLING</div>
+                        <div class="st">CORPORATION</div>
+                        <div class="since">Est. September 2023 · Chennai, India</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <div class="about-stats">
+        <div class="container">
+            <div class="about-stats-grid">
+                <div class="about-stat reveal">
+                    <div class="about-stat__num"><span data-target="15">0</span><span>+</span></div>
+                    <div class="about-stat__label">Projects Delivered</div>
+                </div>
+                <div class="about-stat reveal">
+                    <div class="about-stat__num"><span data-target="98">0</span><span>%</span></div>
+                    <div class="about-stat__label">Client Satisfaction</div>
+                </div>
+                <div class="about-stat reveal">
+                    <div class="about-stat__num"><span data-target="20">0</span><span>+</span></div>
+                    <div class="about-stat__label">Businesses Served</div>
+                </div>
+                <div class="about-stat reveal">
+                    <div class="about-stat__num"><span data-target="3">0</span><span> yrs</span></div>
+                    <div class="about-stat__label">Years in Business</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- OUR STORY -->
+    <section class="section">
+        <div class="container">
+            <div class="story-grid">
+                <div class="story-text">
+                    <div class="section__label" style="text-align:left;">Our Journey</div>
+                    <h2>Built with passion.<br/>Running with purpose.</h2>
+                    <p>ELLOLING Corporation was founded on <span class="highlight">5th September 2023</span> with a simple idea — that small and growing businesses in Tamil Nadu deserve the same quality of technology support that large enterprises enjoy,
+                        at prices that make sense.</p>
+                    <p>We started with web development, helping local businesses build their first digital presence. As trust grew, so did our scope. We added <span class="highlight">CCTV installation</span>, then <span class="highlight">IT maintenance (AMC)</span>,
+                        and now serve clients across multiple service lines — becoming a true one-stop technology partner.</p>
+                    <p>Three years in and we are still running with the same passion we started with. Every client we serve is a relationship we take seriously — not a transaction.</p>
+                    <p style="font-style:italic;border-left:3px solid #E42527;padding-left:16px;color:#555b6e;">"New mask. Same task." — we evolve, we grow, but our commitment to our clients never changes.</p>
+                    <a href="contact.html" class="btn-cta" style="display:inline-flex;margin-top:20px;font-size:.9rem;">Start Working With Us →</a>
+                </div>
+
+                <div>
+                    <div class="section__label" style="text-align:left;margin-bottom:28px;">Timeline</div>
+                    <div class="timeline">
+                        <div class="tl-item reveal">
+                            <div class="tl-line">
+                                <div class="tl-dot"></div>
+                                <div class="tl-bar"></div>
+                            </div>
+                            <div>
+                                <div class="tl-year">SEP 2023</div>
+                                <div class="tl-title">ELLOLING Founded</div>
+                                <div class="tl-desc">Akash Bill Bright registers ELLOLING Corporation in Chennai with a focus on website and app development for local businesses.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item reveal">
+                            <div class="tl-line">
+                                <div class="tl-dot"></div>
+                                <div class="tl-bar"></div>
+                            </div>
+                            <div>
+                                <div class="tl-year">EARLY 2024</div>
+                                <div class="tl-title">First 5 Clients</div>
+                                <div class="tl-desc">Successfully delivered websites for Maysha Fashion, Agate Exports, Anand's personal brand, and more — building a reputation for quality and reliability.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item reveal">
+                            <div class="tl-line">
+                                <div class="tl-dot"></div>
+                                <div class="tl-bar"></div>
+                            </div>
+                            <div>
+                                <div class="tl-year">MID 2024</div>
+                                <div class="tl-title">CCTV &amp; AMC Services Launched</div>
+                                <div class="tl-desc">Expanded into CCTV installation and Annual Maintenance Contracts — offering businesses a complete technology partnership under one roof.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item reveal">
+                            <div class="tl-line">
+                                <div class="tl-dot"></div>
+                                <div class="tl-bar"></div>
+                            </div>
+                            <div>
+                                <div class="tl-year">2025</div>
+                                <div class="tl-title">Enterprise &amp; Technical Support</div>
+                                <div class="tl-desc">Added enterprise IT outsourcing and a dedicated technical support division, including a pincode-based technician booking system for Chennai.</div>
+                            </div>
+                        </div>
+                        <div class="tl-item reveal">
+                            <div class="tl-line">
+                                <div class="tl-dot"></div>
+                                <div class="tl-bar"></div>
+                            </div>
+                            <div>
+                                <div class="tl-year">2026</div>
+                                <div class="tl-title">Growing Strong</div>
+                                <div class="tl-desc">20+ businesses served, 15+ projects delivered, 98% satisfaction — and now building the company's standards, policies, and team for the next phase of growth.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION + VALUES -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">What Drives Us</div>
+                <h2 class="section__title">Our Mission &amp; Values</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">We don't just deliver technology — we build relationships, solve real problems, and stand beside our clients as they grow.</p>
+            </div>
+
+            <div class="values-grid">
+                <div class="value-card reveal" style="--vc-color:#E42527;">
+                    <div class="value-card__icon">🎯</div>
+                    <h3>Client First, Always</h3>
+                    <p>Every decision we make starts with one question: is this the best outcome for our client? We treat every business we work with as if it were our own.</p>
+                </div>
+                <div class="value-card reveal" style="--vc-color:#1565D8;">
+                    <div class="value-card__icon">🔒</div>
+                    <h3>Reliability &amp; Trust</h3>
+                    <p>We show up when we say we will. We deliver what we promise. We are transparent about timelines, costs, and challenges — no surprises, no hidden fees.</p>
+                </div>
+                <div class="value-card reveal" style="--vc-color:#0d7a45;">
+                    <div class="value-card__icon">💡</div>
+                    <h3>Affordable Excellence</h3>
+                    <p>Quality technology should not be a luxury. We price our services fairly so that growing businesses can access the same standard of work as large enterprises.</p>
+                </div>
+                <div class="value-card reveal" style="--vc-color:#7B2FBE;">
+                    <div class="value-card__icon">🤝</div>
+                    <h3>Long-term Partnership</h3>
+                    <p>We are not a one-project vendor. We build lasting relationships and grow alongside our clients — celebrating their wins as our own achievements.</p>
+                </div>
+                <div class="value-card reveal" style="--vc-color:#E87722;">
+                    <div class="value-card__icon">🚀</div>
+                    <h3>Continuous Growth</h3>
+                    <p>Technology evolves fast. We stay ahead — constantly learning, upskilling, and expanding our capabilities so our clients always have access to the latest solutions.</p>
+                </div>
+                <div class="value-card reveal" style="--vc-color:#E42527;">
+                    <div class="value-card__icon">❤️</div>
+                    <h3>Passion &amp; Dedication</h3>
+                    <p>This company was built from passion, not capital. That passion drives every line of code we write, every camera we install, and every ticket we resolve.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">The People</div>
+                <h2 class="section__title">Meet the team behind ELLOLING</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">A small but mighty team — united by a passion for technology and a commitment to making our clients succeed.</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-card reveal">
+                    <div class="team-card__avatar">AK</div>
+                    <h4>Akash Bill Bright</h4>
+                    <div class="team-card__role">Founder &amp; Managing Director</div>
+                    <p>The driving force behind ELLOLING. Akash Bill Bright leads strategy, client relationships, and ensures every delivery meets the company's high standards.</p>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-card__avatar">TM</div>
+                    <h4>Technical Team</h4>
+                    <div class="team-card__role">Development &amp; IT Infrastructure</div>
+                    <p>Our developers and IT engineers handle website builds, app development, AMC support, and CCTV installations across Chennai and Tamil Nadu.</p>
+                </div>
+                <div class="team-card reveal">
+                    <div class="team-card__avatar">DM</div>
+                    <h4>Digital Marketing</h4>
+                    <div class="team-card__role">Marketing &amp; Growth</div>
+                    <p>Our marketing team manages digital presence, content strategy, and helps clients grow their online visibility through targeted campaigns.</p>
+                </div>
+            </div>
+
+            <div style="text-align:center;margin-top:44px;" class="reveal">
+                <p style="color:#555b6e;margin-bottom:18px;font-size:.95rem;">Want to be part of the ELLOLING story?</p>
+                <a href="careers.html" class="btn-cta" style="font-size:.95rem;display:inline-flex;">View Open Roles →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="section section--alt">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Why ELLOLING</div>
+                <h2 class="section__title">What makes us different</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
+                <div class="feature-item reveal">
+                    <div class="feature-item__icon">📍</div>
+                    <div class="feature-item__body">
+                        <h4>Chennai-Based, Tamil Nadu Focused</h4>
+                        <p>We are local. We understand the market, speak the language, and are available on-site across Chennai within 24–48 hours.</p>
+                    </div>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-item__icon">🛠️</div>
+                    <div class="feature-item__body">
+                        <h4>One Team, All Services</h4>
+                        <p>Web development, CCTV, AMC, enterprise IT — all handled by the same trusted team. No juggling multiple vendors.</p>
+                    </div>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-item__icon">💬</div>
+                    <div class="feature-item__body">
+                        <h4>Always Reachable</h4>
+                        <p>Phone, email, WhatsApp — we respond. No automated queues, no waiting days for a reply. Real people, real answers.</p>
+                    </div>
+                </div>
+                <div class="feature-item reveal">
+                    <div class="feature-item__icon">💰</div>
+                    <div class="feature-item__body">
+                        <h4>Fair, Transparent Pricing</h4>
+                        <p>Fixed-price projects and clear AMC contracts. You always know exactly what you are paying — no hidden fees, ever.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+        <div class="container">
+            <div class="cta-band__inner">
+                <h2>Ready to work with us?</h2>
+                <p>Let's build something great together. Start with a free 30-minute consultation.</p>
+                <a href="contact.html" class="btn-white">Get in Touch →</a>
+                <a href="careers.html" class="btn-outline-white">Join the Team</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="wa-float" href="https://wa.me/917305792178" title="Chat on WhatsApp">
+        <svg viewBox="0 0 24 24"><path fill="white" d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__support">
+                <div class="footer__support-item"><span class="footer__support-icon">📞</span>
+                    <div>
+                        <h5>Call Us</h5>
+                        <p>Mon–Sat, 9am–7pm IST</p><a href="tel:+917305792178">+91 73057 92178</a></div>
+                </div>
+                <div class="footer__support-item"><span class="footer__support-icon">✉️</span>
+                    <div>
+                        <h5>Email Us</h5>
+                        <p>Reply within 24 hours</p><a href="mailto:info@elloling.com">info@elloling.com</a></div>
+                </div>
+                <div class="footer__support-item"><span class="footer__support-icon">💬</span>
+                    <div>
+                        <h5>WhatsApp</h5>
+                        <p>Quick replies within 1 hour</p><a href="https://wa.me/917305792178">Chat Now →</a></div>
+                </div>
+            </div>
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                        <div style="background:#E42527;color:white;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">EL</div>
+                        <span style="font-size:1.2rem;font-weight:900;color:white;">ELLOLING</span>
+                    </div>
+                    <p>Your trusted technology partner for websites, apps, CCTV and enterprise IT maintenance — serving businesses across Tamil Nadu.</p>
+                    <div class="footer__social"><a href="#">in</a><a href="#">ig</a><a href="#">fb</a><a href="https://wa.me/917305792178">wa</a></div>
+                </div>
+                <div class="footer__col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="web-development.html">Web &amp; App Dev</a></li>
+                        <li><a href="cctv.html">CCTV</a></li>
+                        <li><a href="amc.html">AMC</a></li>
+                        <li><a href="support.html">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h5>Company</h5>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="careers.html">Careers</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 ELLOLING Corporation. All rights reserved. | No. 15A, Ganapathy Nagar, Moulivakkam, Mangadu Road, Chennai — 600 125</p>
+                <p><a href="#">Privacy</a> · <a href="#">Terms</a> · GST Registered</p>
+            </div>
+        </div>
+    </footer>
+    <script src="nav.js"></script>
+</body>
+
+</html>

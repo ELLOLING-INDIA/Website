@@ -1,0 +1,1055 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>CCTV & Surveillance Systems | ELLOLING</title>
+<meta name="description" content="Professional CCTV installation and surveillance systems for businesses, startups, and homes. Check technician availability and book a site visit online."/>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#1A1A2E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+
+<style>
+/* CCTV Page Specifics */
+.cctv-segment-tabs {
+  display: flex;
+  gap: 6px;
+  background: var(--zoho-off);
+  border-radius: 12px;
+  padding: 6px;
+  margin: 0 auto 48px;
+  width: fit-content;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cctv-seg-btn {
+  padding: 10px 24px;
+  border-radius: 8px;
+  border: none;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: .875rem;
+  color: var(--zoho-mid);
+  background: transparent;
+  cursor: pointer;
+  transition: all .2s;
+}
+.cctv-seg-btn.active, .cctv-seg-btn:hover {
+  background: white;
+  color: var(--zoho-red);
+  box-shadow: var(--shadow-sm);
+}
+.cctv-panel { display: none; }
+.cctv-panel.active { display: block; }
+
+/* Camera type cards */
+.camera-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.camera-card {
+  background: white;
+  border: 1.5px solid var(--zoho-border);
+  border-radius: var(--radius);
+  padding: 26px 22px;
+  transition: transform .25s, box-shadow .25s;
+}
+.camera-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+.camera-card__icon { font-size: 2rem; margin-bottom: 12px; }
+.camera-card h4 { font-size: .95rem; font-weight: 900; margin-bottom: 6px; }
+.camera-card p  { font-size: .83rem; color: var(--zoho-mid); line-height: 1.6; margin-bottom: 14px; }
+.camera-card__price {
+  font-size: .8rem; font-weight: 700;
+  color: var(--zoho-red);
+  background: var(--zoho-red-light);
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 50px;
+}
+
+/* CCTV plan cards */
+.cctv-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Individual plan highlight */
+.individual-highlight {
+  background: linear-gradient(135deg, #fff7ed, #fef3c7);
+  border: 2px solid #f59e0b;
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  margin-bottom: 32px;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.individual-highlight__icon { font-size: 2.5rem; flex-shrink: 0; }
+.individual-highlight h3 { font-size: 1.1rem; margin-bottom: 8px; color: #92400e; }
+.individual-highlight p { font-size: .875rem; color: #78350f; line-height: 1.65; }
+
+/* ── TECHNICIAN CHECKER ── */
+.tech-checker {
+  background: linear-gradient(135deg, var(--zoho-dark) 0%, var(--zoho-navy) 100%);
+  border-radius: var(--radius);
+  padding: 48px 40px;
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.tech-checker::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: rgba(228,37,39,.12);
+}
+.tech-checker::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; left: -40px;
+  width: 150px; height: 150px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.04);
+}
+.tech-checker h2 { font-size: 1.8rem; color: white; margin-bottom: 10px; }
+.tech-checker p { font-size: 1rem; color: rgba(255,255,255,.7); max-width: 540px; margin: 0 auto 32px; }
+.pincode-form {
+  display: flex;
+  gap: 12px;
+  max-width: 480px;
+  margin: 0 auto 24px;
+  position: relative;
+  z-index: 1;
+}
+.pincode-input {
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: var(--radius-sm);
+  border: 2px solid rgba(255,255,255,.2);
+  background: rgba(255,255,255,.08);
+  font-family: 'Lato', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 2px;
+  transition: border-color .2s;
+  backdrop-filter: blur(8px);
+}
+.pincode-input::placeholder { color: rgba(255,255,255,.35); letter-spacing: 1px; font-weight: 400; }
+.pincode-input:focus { outline: none; border-color: rgba(255,255,255,.6); }
+.pincode-btn {
+  padding: 14px 24px;
+  background: var(--zoho-red);
+  border: none;
+  border-radius: var(--radius-sm);
+  color: white;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+  transition: background .2s, transform .15s;
+  white-space: nowrap;
+}
+.pincode-btn:hover { background: var(--zoho-red-d); transform: translateY(-1px); }
+.pincode-result {
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: var(--radius-sm);
+  padding: 16px 20px;
+  font-size: .9rem;
+  font-weight: 700;
+  display: none;
+  position: relative;
+  z-index: 1;
+}
+.pincode-result.available {
+  background: rgba(13,122,69,.3);
+  border: 1px solid rgba(13,122,69,.6);
+  color: #6ee7b7;
+  display: block;
+}
+.pincode-result.unavailable {
+  background: rgba(228,37,39,.2);
+  border: 1px solid rgba(228,37,39,.4);
+  color: #fca5a5;
+  display: block;
+}
+.pincode-result.checking {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.2);
+  color: rgba(255,255,255,.8);
+  display: block;
+}
+
+/* Book visit form card */
+.visit-form-card {
+  background: white;
+  border: 1px solid var(--zoho-border);
+  border-radius: var(--radius);
+  padding: 36px 32px;
+  box-shadow: var(--shadow-md);
+  margin-top: 32px;
+  display: none;
+}
+.visit-form-card.show { display: block; }
+.visit-form-card h3 { font-size: 1.1rem; margin-bottom: 6px; }
+.visit-form-card p  { font-size: .875rem; color: var(--zoho-mid); margin-bottom: 24px; }
+
+/* Popular pincodes */
+.pincode-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 16px;
+  position: relative;
+  z-index: 1;
+}
+.pincode-tag {
+  background: rgba(255,255,255,.1);
+  border: 1px solid rgba(255,255,255,.15);
+  border-radius: 50px;
+  padding: 5px 14px;
+  font-size: .78rem;
+  color: rgba(255,255,255,.65);
+  cursor: pointer;
+  transition: all .2s;
+}
+.pincode-tag:hover { background: rgba(255,255,255,.18); color: white; }
+
+/* Service features */
+.cctv-features-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.cctv-feature {
+  text-align: center;
+  padding: 24px 16px;
+  background: white;
+  border: 1px solid var(--zoho-border);
+  border-radius: var(--radius);
+  transition: transform .25s;
+}
+.cctv-feature:hover { transform: translateY(-3px); }
+.cctv-feature__icon { font-size: 1.8rem; margin-bottom: 12px; }
+.cctv-feature h4 { font-size: .9rem; margin-bottom: 6px; }
+.cctv-feature p  { font-size: .8rem; color: var(--zoho-mid); line-height: 1.55; }
+
+@media(max-width: 1024px) {
+  .camera-grid { grid-template-columns: repeat(2, 1fr); }
+  .cctv-plan-grid { grid-template-columns: 1fr; max-width: 460px; margin: 0 auto; }
+  .cctv-plan-grid .price-card.featured { transform: none; }
+  .cctv-features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media(max-width: 768px) {
+  .camera-grid { grid-template-columns: 1fr; }
+  .pincode-form { flex-direction: column; }
+  .tech-checker { padding: 32px 20px; }
+  .individual-highlight { flex-direction: column; }
+  .cctv-features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav">
+  <a href="index.html" class="nav__logo">
+    <div class="nav__logo-mark">EL</div>
+    <span class="nav__logo-text">ELLO<span>LING</span></span>
+  </a>
+  <ul class="nav__links">
+    <li>
+      <a href="index.html#services">Services
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>
+      </a>
+      <div class="nav__dropdown">
+        <a href="web-development.html">Website & App Development</a>
+        <a href="cctv.html">CCTV & Surveillance</a>
+        
+        <a href="amc.html">AMC (Maintenance)</a>
+        <a href="amc.html#cybersecurity">Cybersecurity</a>
+        <a href="amc.html#enterprise">Enterprise</a>
+      </div>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="amc.html">AMC</a></li>
+    <li><a href="pricing.html">Pricing</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav__actions">
+    <button class="btn-ghost" onclick="location.href='contact.html'">Get a Quote</button>
+    <a href="contact.html" class="btn-cta">Get Started
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+    </a>
+  </div>
+  <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav__mobile" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="web-development.html">Website & App Development</a>
+  <a href="cctv.html">CCTV & Surveillance</a>
+  <a href="amc.html">AMC / Maintenance</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="support.html">Support</a>
+  <a href="contact.html">Contact</a>
+  <a href="contact.html" class="mobile-cta">Get Started →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <div class="page-hero__bread"><a href="index.html">Home</a> / <a href="index.html#services">Services</a> / CCTV & Surveillance</div>
+    <div class="section__label" style="margin-bottom:12px;">CCTV & Surveillance Systems</div>
+    <h1>See everything. <span style="color:var(--zoho-red);">Miss nothing.</span></h1>
+    <p>Professional CCTV installation, monitoring, and maintenance for businesses, startups, and homes. HD cameras, remote access, and 24/7 support.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px;">
+      <a href="#technician-checker" class="btn-cta" style="font-size:.95rem;">📍 Check Technician Availability →</a>
+      <a href="#pricing" class="btn-ghost" style="font-size:.95rem;display:inline-flex;align-items:center;padding:9px 22px;">View Pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     WHY CCTV / FEATURES
+     ================================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Our Capabilities</div>
+      <h2 class="section__title">Complete surveillance solutions</h2>
+      <div class="section__divider"></div>
+    </div>
+    <div class="cctv-features-grid">
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">📷</div>
+        <h4>HD & 4K Cameras</h4>
+        <p>Crystal-clear footage with day and night vision. We install the best cameras for your environment.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">☁️</div>
+        <h4>Cloud Storage</h4>
+        <p>Your footage stored securely in the cloud — access from anywhere, anytime, on any device.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">🔔</div>
+        <h4>Motion Alerts</h4>
+        <p>Instant alerts to your phone when motion is detected. Smart AI filters reduce false alarms.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">🔧</div>
+        <h4>AMC & Maintenance</h4>
+        <p>Annual maintenance contracts to keep your cameras running perfectly — lens cleaning, updates, and repairs.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">📱</div>
+        <h4>Remote Monitoring</h4>
+        <p>Watch your premises live from your smartphone, tablet, or laptop — anywhere in the world.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">🔐</div>
+        <h4>Access Control</h4>
+        <p>Integrate CCTV with door access control, intercoms, and alarm systems for full perimeter security.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">🏗️</div>
+        <h4>Professional Installation</h4>
+        <p>Certified technicians handle cabling, mounting, configuration, and user training — zero hassle for you.</p>
+      </div>
+      <div class="cctv-feature reveal">
+        <div class="cctv-feature__icon">📊</div>
+        <h4>Analytics & Reports</h4>
+        <p>Footfall counting, activity reports, and heat maps — turn surveillance data into business insights.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CAMERA TYPES
+     ================================================================ -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Camera Types</div>
+      <h2 class="section__title">We install the right camera<br/>for every situation</h2>
+      <div class="section__divider"></div>
+    </div>
+    <div class="camera-grid">
+      <div class="camera-card reveal">
+        <div class="camera-card__icon">🔷</div>
+        <h4>Dome Camera</h4>
+        <p>Ideal for indoor ceilings — discreet, vandal-resistant, and covers a wide angle. Perfect for offices, lobbies, and retail.</p>
+        <span class="camera-card__price">From ₹2,500/unit</span>
+      </div>
+      <div class="camera-card reveal">
+        <div class="camera-card__icon">📡</div>
+        <h4>Bullet Camera</h4>
+        <p>Long-range outdoor camera for perimeters, parking, gates, and entry points. Weatherproof and highly visible deterrent.</p>
+        <span class="camera-card__price">From ₹3,000/unit</span>
+      </div>
+      <div class="camera-card reveal">
+        <div class="camera-card__icon">🔄</div>
+        <h4>PTZ Camera</h4>
+        <p>Pan-tilt-zoom cameras for large areas. Remotely controlled, auto-tracking, and ideal for warehouses and campuses.</p>
+        <span class="camera-card__price">From ₹8,000/unit</span>
+      </div>
+      <div class="camera-card reveal">
+        <div class="camera-card__icon">🌙</div>
+        <h4>Night Vision / IR Camera</h4>
+        <p>Full colour footage in daylight, switching to sharp infrared at night. No blind spots, 24/7 coverage.</p>
+        <span class="camera-card__price">From ₹3,500/unit</span>
+      </div>
+      <div class="camera-card reveal">
+        <div class="camera-card__icon">📶</div>
+        <h4>IP / Wi-Fi Camera</h4>
+        <p>Network-connected cameras — no cabling required. Easy to install in rented spaces, homes, and small offices.</p>
+        <span class="camera-card__price">From ₹2,800/unit</span>
+      </div>
+      <div class="camera-card reveal">
+        <div class="camera-card__icon">🎯</div>
+        <h4>ANPR / Number Plate Camera</h4>
+        <p>Specialised cameras for vehicle number plate recognition at gates, parking, and entry points.</p>
+        <span class="camera-card__price">From ₹12,000/unit</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PRICING BY SEGMENT
+     ================================================================ -->
+<section class="section" id="pricing">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Pricing Plans</div>
+      <h2 class="section__title">Plans for every need and budget</h2>
+      <div class="section__divider"></div>
+      <p class="section__subtitle">Whether you're securing a home, a startup office, or a large enterprise — we have the right package.</p>
+    </div>
+
+    <div class="cctv-segment-tabs">
+      <button class="cctv-seg-btn active" data-cctv="business">🏢 Business</button>
+      <button class="cctv-seg-btn" data-cctv="startup">🚀 Startup</button>
+      <button class="cctv-seg-btn" data-cctv="individual">🏠 Individual / Home</button>
+    </div>
+
+    <!-- BUSINESS -->
+    <div class="cctv-panel active" id="cctv-business">
+      <div class="cctv-plan-grid">
+        <div class="price-card reveal">
+          <div class="price-card__tier">Business Starter</div>
+          <h3>Small Office</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">18K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">Up to 4 cameras — ideal for small offices & shops</p>
+          <ul class="price-card__features">
+            <li>4 HD Dome/Bullet cameras</li>
+            <li>4-channel DVR / NVR</li>
+            <li>500GB HDD storage</li>
+            <li>Mobile remote viewing app</li>
+            <li>Professional installation</li>
+            <li>1-year warranty on hardware</li>
+            <li class="unavail">Cloud backup</li>
+            <li class="unavail">Motion alert system</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Get Quote →</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-card__badge">Most Popular</div>
+          <div class="price-card__tier">Business Pro</div>
+          <h3>Medium Office / Retail</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">45K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">Up to 12 cameras — offices, retail, restaurants</p>
+          <ul class="price-card__features">
+            <li>12 HD cameras (mix of types)</li>
+            <li>16-channel NVR</li>
+            <li>2TB HDD + cloud backup</li>
+            <li>Motion alerts & notifications</li>
+            <li>Night vision coverage</li>
+            <li>Remote monitoring app</li>
+            <li>Annual maintenance included (1yr)</li>
+            <li>Dedicated support contact</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Get Quote →</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-card__tier">Enterprise</div>
+          <h3>Warehouse / Campus</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">1L</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">20+ cameras — warehouses, factories, campuses</p>
+          <ul class="price-card__features">
+            <li>Custom camera count & placement</li>
+            <li>Enterprise-grade NVR / VMS</li>
+            <li>Unlimited cloud storage</li>
+            <li>PTZ & ANPR options</li>
+            <li>Access control integration</li>
+            <li>24/7 monitoring centre option</li>
+            <li>Dedicated project manager</li>
+            <li>SLA-backed maintenance</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Custom Quote →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- STARTUP -->
+    <div class="cctv-panel" id="cctv-startup">
+      <div class="cctv-plan-grid">
+        <div class="price-card reveal">
+          <div class="price-card__tier">Startup Basic</div>
+          <h3>Co-working / Desk Space</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">12K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">2–4 cameras for small startup workspaces</p>
+          <ul class="price-card__features">
+            <li>2–4 IP Wi-Fi cameras</li>
+            <li>Cloud DVR (no on-site box)</li>
+            <li>7-day cloud storage</li>
+            <li>Mobile viewing app</li>
+            <li>Easy self-relocation</li>
+            <li>Quick 1-day installation</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Get Quote →</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-card__badge">Best for Startups</div>
+          <div class="price-card__tier">Startup Pro</div>
+          <h3>Startup Office</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">28K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">6–8 cameras for a growing team office</p>
+          <ul class="price-card__features">
+            <li>6–8 HD cameras</li>
+            <li>8-channel NVR</li>
+            <li>1TB storage + cloud backup</li>
+            <li>Motion alerts</li>
+            <li>Remote monitoring</li>
+            <li>After-hours alert system</li>
+            <li>Scalable — add cameras later</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Get Quote →</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-card__tier">Startup Scale</div>
+          <h3>Multi-floor / Expansion</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">55K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">10–16 cameras across multiple floors or units</p>
+          <ul class="price-card__features">
+            <li>10–16 camera system</li>
+            <li>Centralised NVR management</li>
+            <li>2TB storage + 30-day cloud</li>
+            <li>Access control add-on</li>
+            <li>AMC option available</li>
+            <li>Priority technical support</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Get Quote →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- INDIVIDUAL / HOME -->
+    <div class="cctv-panel" id="cctv-individual">
+      <div class="individual-highlight reveal">
+        <div class="individual-highlight__icon">🏠</div>
+        <div>
+          <h3>Made for homes and individuals — affordable, simple, and effective</h3>
+          <p>We believe everyone deserves security. Our individual plans are specially priced to give you peace of mind without breaking the bank. Same quality cameras, same professional installation — designed for homes, apartments, and small spaces.</p>
+        </div>
+      </div>
+
+      <div class="cctv-plan-grid">
+        <div class="price-card reveal">
+          <div class="price-card__tier">Home Basic</div>
+          <h3>Apartment / Villa Entry</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">6,500</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">1–2 cameras at door/gate — peace of mind starter</p>
+          <ul class="price-card__features">
+            <li>1–2 HD Wi-Fi cameras</li>
+            <li>Free mobile app</li>
+            <li>7-day cloud storage</li>
+            <li>Motion alert to phone</li>
+            <li>Night vision</li>
+            <li>DIY-friendly setup support</li>
+            <li class="unavail">On-site NVR</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Book Now →</a>
+        </div>
+
+        <div class="price-card featured reveal">
+          <div class="price-card__badge">Best Value</div>
+          <div class="price-card__tier">Home Plus</div>
+          <h3>Home Full Coverage</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">14K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">4–6 cameras covering all angles of your home</p>
+          <ul class="price-card__features">
+            <li>4–6 HD cameras</li>
+            <li>4-channel NVR + 1TB HDD</li>
+            <li>30-day storage</li>
+            <li>Night vision on all cameras</li>
+            <li>Motion alerts & email reports</li>
+            <li>Professional installation</li>
+            <li>Free 6-month support</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Book Now →</a>
+        </div>
+
+        <div class="price-card reveal">
+          <div class="price-card__tier">Home Premium</div>
+          <h3>Villa / Bungalow</h3>
+          <div class="price-card__price">
+            <span class="currency">₹</span>
+            <span class="amount">25K</span>
+            <span class="period">onwards</span>
+          </div>
+          <p class="price-card__note">8+ cameras for large homes, villas, and farmhouses</p>
+          <ul class="price-card__features">
+            <li>8 HD cameras (indoor + outdoor)</li>
+            <li>8-channel NVR + 2TB HDD</li>
+            <li>60-day storage</li>
+            <li>PTZ option for driveway</li>
+            <li>Alarm system integration</li>
+            <li>Annual maintenance (1yr)</li>
+            <li>Priority home visit support</li>
+          </ul>
+          <a href="contact.html" class="btn-plan">Book Now →</a>
+        </div>
+      </div>
+
+      <div style="margin-top:28px;padding:20px 24px;background:var(--zoho-off);border:1px solid var(--zoho-border);border-radius:var(--radius);display:flex;gap:14px;align-items:center;flex-wrap:wrap;" class="reveal">
+        <span style="font-size:1.4rem;">💡</span>
+        <p style="font-size:.875rem;color:var(--zoho-mid);margin:0;"><strong style="color:var(--zoho-dark);">EMI available</strong> on home packages. Split your payment over 3–6 months with zero cost. Ask us for details when you book your site visit.</p>
+        <a href="contact.html" class="btn-cta" style="white-space:nowrap;font-size:.85rem;padding:8px 18px;margin-left:auto;">Ask About EMI →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     TECHNICIAN AVAILABILITY CHECKER
+     ================================================================ -->
+<section class="section section--alt" id="technician-checker">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Technician Availability</div>
+      <h2 class="section__title">Is a technician available<br/>in your area?</h2>
+      <div class="section__divider"></div>
+      <p class="section__subtitle">Enter your pincode to instantly check if one of our certified CCTV technicians is available near you — then request a site visit right here.</p>
+    </div>
+
+    <div class="tech-checker reveal">
+      <h2>📍 Check Your Area</h2>
+      <p>We cover Chennai, Coimbatore, Madurai, and surrounding areas. Enter your 6-digit pincode to check availability.</p>
+
+      <div class="pincode-form">
+        <input type="text" class="pincode-input" id="pincode-input" placeholder="Enter your pincode (e.g. 600001)" maxlength="6" pattern="[0-9]{6}"/>
+        <button class="pincode-btn" onclick="checkPincode()">Check →</button>
+      </div>
+
+      <div class="pincode-result" id="pincode-result"></div>
+
+      <div class="pincode-tags">
+        <span class="pincode-tag" onclick="fillPin('600001')">600001 — Chennai</span>
+        <span class="pincode-tag" onclick="fillPin('600011')">600011 — T. Nagar</span>
+        <span class="pincode-tag" onclick="fillPin('600014')">600014 — Adyar</span>
+        <span class="pincode-tag" onclick="fillPin('600040')">600040 — Anna Nagar</span>
+        <span class="pincode-tag" onclick="fillPin('641001')">641001 — Coimbatore</span>
+        <span class="pincode-tag" onclick="fillPin('625001')">625001 — Madurai</span>
+      </div>
+    </div>
+
+    <!-- Visit request form — shown after pincode check -->
+    <div class="visit-form-card" id="visit-form">
+      <h3>📅 Request a Free Site Visit</h3>
+      <p>A certified technician will visit your location to assess your premises and provide a detailed quote — completely free, no obligation.</p>
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Your Name *</label>
+            <input type="text" id="vf-name" placeholder="Full name"/>
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="vf-phone" placeholder="+91 73057 92178"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Pincode *</label>
+            <input type="text" id="vf-pincode" placeholder="6-digit pincode"/>
+          </div>
+          <div class="form-group">
+            <label>Preferred Date</label>
+            <input type="date" id="vf-date"/>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Property Type</label>
+            <select id="vf-type">
+              <option value="">Select type...</option>
+              <option>Home / Apartment</option>
+              <option>Villa / Bungalow</option>
+              <option>Small Office</option>
+              <option>Retail Store / Shop</option>
+              <option>Warehouse / Factory</option>
+              <option>Campus / Multi-floor Building</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>No. of Cameras (approx)</label>
+            <select id="vf-cameras">
+              <option value="">Not sure yet</option>
+              <option>1–2 cameras</option>
+              <option>3–6 cameras</option>
+              <option>7–12 cameras</option>
+              <option>13+ cameras</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Address / Landmark</label>
+          <textarea id="vf-address" placeholder="Your full address or nearest landmark..." style="min-height:80px;"></textarea>
+        </div>
+        <button class="btn-cta" style="width:100%;justify-content:center;padding:13px;" onclick="submitVisit()">
+          Request Free Site Visit →
+        </button>
+      </div>
+      <div id="visit-success" style="display:none;margin-top:16px;padding:16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);color:#166534;font-weight:700;">
+        ✅ Visit request submitted! Our team will call you within 2 hours to confirm the appointment.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     PROCESS
+     ================================================================ -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Installation Process</div>
+      <h2 class="section__title">From booking to fully installed<br/>in as little as 2 days</h2>
+      <div class="section__divider"></div>
+    </div>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="process-step__num">1</div>
+        <h4>Free Site Survey</h4>
+        <p>Our technician visits your location, assesses all areas, and designs the optimal camera placement plan — at no charge.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step__num">2</div>
+        <h4>Custom Proposal</h4>
+        <p>You receive a detailed quote with camera specs, coverage map, and total cost. No surprises.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step__num">3</div>
+        <h4>Installation Day</h4>
+        <p>Our certified team installs, cables, and configures everything. Work is clean, fast, and minimal disruption to you.</p>
+      </div>
+      <div class="process-step reveal">
+        <div class="process-step__num">4</div>
+        <h4>Training & Handover</h4>
+        <p>We walk you through the system, set up your mobile app, and ensure you're completely comfortable before we leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMC FOR CCTV -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Annual Maintenance</div>
+      <h2 class="section__title">Keep your cameras always working</h2>
+      <div class="section__divider"></div>
+      <p class="section__subtitle">Our CCTV Annual Maintenance Contract ensures your surveillance system stays in perfect condition — no downtime, no surprises.</p>
+    </div>
+    <div class="amc-grid">
+      <div class="amc-card reveal">
+        <div class="amc-card__icon">🔧</div>
+        <h3>CCTV Basic AMC</h3>
+        <p>Annual maintenance for systems up to 8 cameras — includes 2 scheduled visits per year.</p>
+        <ul class="amc-card__list">
+          <li>2 preventive maintenance visits/year</li>
+          <li>Lens cleaning & alignment</li>
+          <li>DVR/NVR health check</li>
+          <li>Software & firmware updates</li>
+          <li>Phone & remote support</li>
+        </ul>
+        <div style="font-size:.85rem;font-weight:700;color:var(--zoho-red);margin-bottom:16px;">From ₹4,000/year</div>
+        <a href="contact.html" class="btn-plan">Get AMC Quote →</a>
+      </div>
+
+      <div class="amc-card featured reveal">
+        <div class="amc-card__icon">🛡️</div>
+        <h3>CCTV Pro AMC</h3>
+        <p>Comprehensive AMC for systems up to 20 cameras with priority on-site response.</p>
+        <ul class="amc-card__list">
+          <li>4 scheduled visits/year</li>
+          <li>Priority on-site response (24hr)</li>
+          <li>Free part replacements (minor)</li>
+          <li>Cloud backup health checks</li>
+          <li>24/7 remote support</li>
+          <li>Annual system health report</li>
+        </ul>
+        <div style="font-size:.85rem;font-weight:700;color:var(--zoho-red);margin-bottom:16px;">From ₹9,000/year</div>
+        <a href="contact.html" class="btn-plan">Get AMC Quote →</a>
+      </div>
+
+      <div class="amc-card reveal">
+        <div class="amc-card__icon">🏢</div>
+        <h3>Enterprise AMC</h3>
+        <p>Dedicated maintenance for large systems with a dedicated CCTV technician assigned to your account.</p>
+        <ul class="amc-card__list">
+          <li>Monthly scheduled visits</li>
+          <li>Dedicated assigned technician</li>
+          <li>4-hour emergency response SLA</li>
+          <li>Full hardware replacement cover</li>
+          <li>Centralised management portal</li>
+          <li>Monthly health reports</li>
+        </ul>
+        <div style="font-size:.85rem;font-weight:700;color:var(--zoho-red);margin-bottom:16px;">Custom Quote</div>
+        <a href="contact.html" class="btn-plan">Contact Us →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner">
+      <h2>Secure your premises today</h2>
+      <p>Book a free site survey. Our technician visits, assesses, and quotes — no cost, no obligation.</p>
+      <a href="#technician-checker" class="btn-white">Check Technician Availability →</a>
+      <a href="contact.html" class="btn-outline-white">Contact Us</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <div style="background:var(--zoho-red);color:white;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">EL</div>
+          <span style="font-size:1.2rem;font-weight:900;color:white;">ELLOLING</span>
+        </div>
+        <p>Your trusted technology partner for websites, apps, CCTV and enterprise IT maintenance.</p>
+        <div class="footer__social">
+          <a href="#">in</a><a href="#">𝕏</a><a href="#">ig</a><a href="#">fb</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>CCTV Services</h5>
+        <ul>
+          <li><a href="cctv.html#cctv-business">Business CCTV</a></li>
+          <li><a href="cctv.html#cctv-startup">Startup CCTV</a></li>
+          <li><a href="cctv.html#cctv-individual">Home CCTV</a></li>
+          <li><a href="cctv.html#technician-checker">Book Site Visit</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Other Services</h5>
+        <ul>
+          <li><a href="web-development.html">Web & App Dev</a></li>
+          <li><a href="about.html">About</a></li>
+    <li><a href="amc.html">AMC Plans</a></li>
+          <li><a href="amc.html#cybersecurity">Cybersecurity</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="support.html">Technical Support</a></li>
+          <li><a href="support.html#cctv-visit">CCTV Site Visit</a></li>
+          <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Book a Call</a></li>
+          <li><a href="mailto:info@elloling.com">info@elloling.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 ELLOLING Corporation. All rights reserved.</p>
+      <p>Made with ❤️ in Chennai, India</p>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+// CCTV segment tabs
+document.querySelectorAll('.cctv-seg-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.getAttribute('data-cctv');
+    document.querySelectorAll('.cctv-seg-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.cctv-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const panel = document.getElementById('cctv-' + target);
+    if (panel) panel.classList.add('active');
+  });
+});
+
+// Pincode availability map — Tamil Nadu pincodes covered
+const COVERED_RANGES = [
+  [600001, 600130], // Chennai city
+  [600200, 600130],
+  [601001, 601301], // Chennai suburbs
+  [602001, 602106],
+  [603001, 603403],
+  [641001, 641062], // Coimbatore
+  [641101, 641202],
+  [625001, 625025], // Madurai
+  [625101, 625234],
+  [628001, 628952], // Tirunelveli area
+];
+
+function isPincodeCovered(pin) {
+  const num = parseInt(pin, 10);
+  return COVERED_RANGES.some(([lo, hi]) => num >= lo && num <= hi);
+}
+
+function fillPin(pin) {
+  document.getElementById('pincode-input').value = pin;
+  checkPincode();
+}
+
+function checkPincode() {
+  const pin = document.getElementById('pincode-input').value.trim();
+  const result = document.getElementById('pincode-result');
+  const visitForm = document.getElementById('visit-form');
+  const vfPin = document.getElementById('vf-pincode');
+
+  if (!/^\d{6}$/.test(pin)) {
+    result.className = 'pincode-result unavailable';
+    result.textContent = '⚠️ Please enter a valid 6-digit pincode.';
+    visitForm.classList.remove('show');
+    return;
+  }
+
+  result.className = 'pincode-result checking';
+  result.textContent = '🔍 Checking availability...';
+  visitForm.classList.remove('show');
+
+  setTimeout(() => {
+    if (isPincodeCovered(pin)) {
+      result.className = 'pincode-result available';
+      result.innerHTML = '✅ Great news! We have technicians available in pincode <strong>' + pin + '</strong>. Fill in the form below to book your free site visit.';
+      visitForm.classList.add('show');
+      if (vfPin) vfPin.value = pin;
+      visitForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      result.className = 'pincode-result unavailable';
+      result.innerHTML = '📍 We don\'t currently have technicians in pincode <strong>' + pin + '</strong>, but we\'re expanding! <a href="contact.html" style="color:#fca5a5;text-decoration:underline;">Contact us</a> and we\'ll arrange something.';
+      visitForm.classList.remove('show');
+    }
+  }, 900);
+}
+
+// Allow Enter key on pincode input
+document.getElementById('pincode-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPincode();
+  if (!/[0-9]/.test(e.key) && !['Backspace','Tab','ArrowLeft','ArrowRight','Delete'].includes(e.key)) {
+    e.preventDefault();
+  }
+});
+
+function submitVisit() {
+  const name    = document.getElementById('vf-name').value.trim();
+  const phone   = document.getElementById('vf-phone').value.trim();
+  const pin     = document.getElementById('vf-pincode').value.trim();
+  const address = document.getElementById('vf-address') ? document.getElementById('vf-address').value.trim() : '';
+  const btn     = document.querySelector('.visit-form-card .btn-cta');
+
+  if (!name || !phone || !pin) {
+    alert('Please fill in your name, phone, and pincode to book a visit.');
+    return;
+  }
+
+  if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+  const body = new FormData();
+  body.append('name',    name);
+  body.append('phone',   phone);
+  body.append('pincode', pin);
+  body.append('address', address);
+  body.append('_subject','CCTV Site Survey Request — ELLOLING');
+
+  fetch('https://formspree.io/f/myklaywm', {
+    method: 'POST',
+    body: body,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(r => {
+    if (!r.ok) throw new Error('Server error');
+    document.getElementById('visit-success').style.display = 'block';
+    if (btn) { btn.textContent = '✓ Request Submitted'; }
+  })
+  .catch(err => {
+    console.error('Formspree error:', err);
+    alert('Something went wrong. Please call us on +91 73057 92178.');
+    if (btn) { btn.disabled = false; btn.textContent = 'Request Free Site Visit →'; }
+  });
+}
+</script>
+</body>
+</html>

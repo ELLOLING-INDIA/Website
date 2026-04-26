@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Technical Support | ELLOLING</title>
+    <meta name="description" content="ELLOLING technical support — raise a ticket, book a CCTV site visit, or contact enterprise support. Fast response, real engineers." />
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <!-- Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1A1A2E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+
+    <style>
+        /* Support page */
+        
+        .support-category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+        
+        .support-cat-card {
+            background: white;
+            border: 1.5px solid var(--zoho-border);
+            border-radius: var(--radius);
+            padding: 32px 26px;
+            text-align: center;
+            transition: transform .25s, box-shadow .25s, border-color .25s;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .support-cat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--zoho-red);
+        }
+        
+        .support-cat-card__icon {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+        }
+        
+        .support-cat-card h3 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+        
+        .support-cat-card p {
+            font-size: .85rem;
+            color: var(--zoho-mid);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        
+        .support-cat-card__sla {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: .78rem;
+            font-weight: 700;
+        }
+        /* Ticket form */
+        
+        .ticket-section {
+            background: white;
+            border: 1px solid var(--zoho-border);
+            border-radius: var(--radius);
+            padding: 40px 36px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .ticket-section h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        
+        .ticket-section>p {
+            font-size: .9rem;
+            color: var(--zoho-mid);
+            margin-bottom: 28px;
+        }
+        /* Pincode checker (same as CCTV) */
+        
+        .mini-checker {
+            background: var(--zoho-off);
+            border: 1px solid var(--zoho-border);
+            border-radius: var(--radius);
+            padding: 32px 28px;
+        }
+        
+        .mini-checker h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        
+        .mini-checker p {
+            font-size: .875rem;
+            color: var(--zoho-mid);
+            margin-bottom: 20px;
+        }
+        
+        .mini-pincode-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .mini-pin-input {
+            flex: 1;
+            min-width: 160px;
+            padding: 12px 16px;
+            border: 1.5px solid var(--zoho-border2);
+            border-radius: var(--radius-sm);
+            font-family: 'Lato', sans-serif;
+            font-size: .95rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+        
+        .mini-pin-input:focus {
+            outline: none;
+            border-color: var(--zoho-red);
+            box-shadow: 0 0 0 3px rgba(228, 37, 39, .1);
+        }
+        
+        .mini-result {
+            margin-top: 14px;
+            padding: 12px 16px;
+            border-radius: var(--radius-sm);
+            font-size: .875rem;
+            font-weight: 700;
+            display: none;
+        }
+        
+        .mini-result.ok {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            color: #166534;
+            display: block;
+        }
+        
+        .mini-result.no {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            display: block;
+        }
+        
+        .mini-result.wait {
+            background: var(--zoho-off);
+            border: 1px solid var(--zoho-border);
+            color: var(--zoho-mid);
+            display: block;
+        }
+        /* Status indicators */
+        
+        .status-banner {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: var(--radius-sm);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #22c55e;
+            flex-shrink: 0;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%,
+            100% {
+                opacity: 1
+            }
+            50% {
+                opacity: .4
+            }
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid var(--zoho-border);
+            padding: 18px 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-item summary {
+            font-weight: 700;
+            font-size: .95rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            color: var(--zoho-dark);
+        }
+        
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        
+        .faq-item summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            color: var(--zoho-red);
+            flex-shrink: 0;
+        }
+        
+        .faq-item[open] summary::after {
+            content: '−';
+        }
+        
+        .faq-item p {
+            font-size: .875rem;
+            color: var(--zoho-mid);
+            line-height: 1.7;
+            margin-top: 12px;
+            padding-right: 24px;
+        }
+        
+        @media(max-width: 1024px) {
+            .support-category-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media(max-width: 768px) {
+            .support-category-grid {
+                grid-template-columns: 1fr;
+            }
+            .ticket-section {
+                padding: 28px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav" id="main-nav">
+        <a href="index.html" class="nav__logo">
+            <div class="nav__logo-mark">EL</div>
+            <span class="nav__logo-text">ELLO<span>LING</span></span>
+        </a>
+        <ul class="nav__links">
+            <li>
+                <a href="index.html#services">Services
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>
+      </a>
+                <div class="nav__dropdown">
+                    <a href="web-development.html">Website & App Development</a>
+                    <a href="cctv.html">CCTV & Surveillance</a>
+
+                    <a href="amc.html">AMC (Maintenance)</a>
+                    <a href="amc.html#cybersecurity">Cybersecurity</a>
+                    <a href="amc.html#enterprise">Enterprise</a>
+                </div>
+            </li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="amc.html">AMC</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="support.html" class="active">Support</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav__actions">
+            <button class="btn-ghost" onclick="location.href='contact.html'">Get a Quote</button>
+            <a href="contact.html" class="btn-cta">Get Started
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+    </a>
+        </div>
+        <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="nav__mobile" id="mobile-menu">
+        <a href="index.html">Home</a>
+        <a href="web-development.html">Website & App Development</a>
+        <a href="cctv.html">CCTV & Surveillance</a>
+        <a href="amc.html">AMC / Maintenance</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <a href="contact.html" class="mobile-cta">Get Started →</a>
+    </div>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+        <div class="container page-hero__inner">
+            <div class="page-hero__bread"><a href="index.html">Home</a> / Support</div>
+            <div class="section__label" style="margin-bottom:12px;">Customer Support</div>
+            <h1>We're here to <span style="color:var(--zoho-red);">help you.</span></h1>
+            <p>Technical support, CCTV site visits, and enterprise assistance — all in one place. Real engineers, real answers, fast response.</p>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     SYSTEM STATUS
+     ================================================================ -->
+    <section class="section" style="padding-bottom:0;">
+        <div class="container">
+            <div class="status-banner reveal">
+                <div class="status-dot"></div>
+                <p style="margin:0;font-size:.875rem;font-weight:700;color:#166534;">All systems operational — support team available Mon–Sat 9am–8pm. AMC clients get 24/7 access.</p>
+                <a href="#raise-ticket" style="margin-left:auto;font-size:.8rem;font-weight:700;color:var(--zoho-red);white-space:nowrap;">Raise a Ticket →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     SUPPORT CATEGORIES
+     ================================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Support Options</div>
+                <h2 class="section__title">How can we help you today?</h2>
+                <div class="section__divider"></div>
+            </div>
+
+            <div class="support-category-grid">
+                <a href="#raise-ticket" class="support-cat-card reveal">
+                    <div class="support-cat-card__icon">🎫</div>
+                    <h3>General Technical Support</h3>
+                    <p>Website issues, app bugs, network problems, software glitches — raise a ticket and our engineers will respond fast.</p>
+                    <span class="support-cat-card__sla" style="background:#fef3c7;color:#92400e;">Response: 4–8 hrs</span>
+                </a>
+
+                <a href="#cctv-visit" class="support-cat-card reveal">
+                    <div class="support-cat-card__icon">📷</div>
+                    <h3>CCTV Technical Visit</h3>
+                    <p>Camera not working, footage issues, or need a new installation? Check technician availability in your area and book a visit.</p>
+                    <span class="support-cat-card__sla" style="background:#dcfce7;color:#166534;">Same-day in covered areas</span>
+                </a>
+
+                <a href="#enterprise-support" class="support-cat-card reveal">
+                    <div class="support-cat-card__icon">🏢</div>
+                    <h3>Enterprise Support</h3>
+                    <p>Dedicated support channel for enterprise clients — priority queue, dedicated engineer, and SLA-backed response times.</p>
+                    <span class="support-cat-card__sla" style="background:var(--zoho-red-light);color:var(--zoho-red);">SLA: 1–2 hrs</span>
+                </a>
+            </div>
+
+            <!-- Quick contact strip -->
+            <div style="background:var(--zoho-off);border:1px solid var(--zoho-border);border-radius:var(--radius);padding:24px 28px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px;flex-wrap:wrap;" class="reveal">
+                <div style="display:flex;gap:14px;align-items:center;">
+                    <span style="font-size:1.5rem;">📞</span>
+                    <div>
+                        <div style="font-size:.8rem;font-weight:700;color:var(--zoho-light);text-transform:uppercase;letter-spacing:.5px;">Phone Support</div>
+                        <a href="tel:+917305792178" style="font-size:.95rem;font-weight:700;color:var(--zoho-dark);">+91 73057 92178</a>
+                    </div>
+                </div>
+                <div style="display:flex;gap:14px;align-items:center;">
+                    <span style="font-size:1.5rem;">📧</span>
+                    <div>
+                        <div style="font-size:.8rem;font-weight:700;color:var(--zoho-light);text-transform:uppercase;letter-spacing:.5px;">Email Support</div>
+                        <a href="mailto:info@elloling.com" style="font-size:.95rem;font-weight:700;color:var(--zoho-dark);">info@elloling.com</a>
+                    </div>
+                </div>
+                <div style="display:flex;gap:14px;align-items:center;">
+                    <span style="font-size:1.5rem;">💬</span>
+                    <div>
+                        <div style="font-size:.8rem;font-weight:700;color:var(--zoho-light);text-transform:uppercase;letter-spacing:.5px;">WhatsApp</div>
+                        <a href="#" style="font-size:.95rem;font-weight:700;color:var(--zoho-dark);">Chat with us →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     RAISE A TICKET
+     ================================================================ -->
+    <section class="section section--alt" id="raise-ticket">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Raise a Ticket</div>
+                <h2 class="section__title">Technical support request</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">Fill in the form below and our team will get back to you within the SLA for your plan.</p>
+            </div>
+
+            <div class="ticket-section reveal">
+                <h3>New Support Ticket</h3>
+                <p>Describe your issue clearly so we can assign the right engineer and resolve it faster.</p>
+                <div class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Your Name *</label>
+                            <input type="text" id="tk-name" placeholder="Full name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone / WhatsApp *</label>
+                            <input type="tel" id="tk-phone" placeholder="+91 73057 92178" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="tk-email" placeholder="your@email.com" />
+                        </div>
+                        <div class="form-group">
+                            <label>Support Category *</label>
+                            <select id="tk-category">
+              <option value="">Select category...</option>
+              <option>Website Issue</option>
+              <option>Mobile App Issue</option>
+              <option>CCTV / Camera Problem</option>
+              <option>Network / Internet Issue</option>
+              <option>Server / Hosting Issue</option>
+              <option>Software / System Problem</option>
+              <option>AMC Related</option>
+              <option>New Installation Request</option>
+              <option>Other</option>
+            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Priority</label>
+                            <select id="tk-priority">
+              <option value="low">Low — General query or non-urgent</option>
+              <option value="medium">Medium — Service degraded</option>
+              <option value="high" selected>High — System partially down</option>
+              <option value="critical">Critical — Complete outage / data issue</option>
+            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Your Plan / Contract</label>
+                            <select id="tk-plan">
+              <option value="">Not an AMC client</option>
+              <option>Essential AMC</option>
+              <option>Professional AMC</option>
+              <option>Enterprise AMC</option>
+              <option>CCTV AMC</option>
+            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Describe Your Issue *</label>
+                        <textarea id="tk-issue" placeholder="Describe the problem in detail — what happened, when it started, what you've tried..." style="min-height:140px;"></textarea>
+                    </div>
+                    <button class="btn-cta" style="font-size:.95rem;padding:13px 28px;" onclick="submitTicket()">
+          Submit Support Ticket →
+        </button>
+                    <div id="ticket-success" style="display:none;margin-top:16px;padding:16px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);color:#166534;font-weight:700;">
+                        ✅ Ticket submitted successfully! Your ticket ID is <strong>#TKT-<span id="ticket-id"></span></strong>. We'll contact you within your SLA timeframe.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     CCTV SITE VISIT
+     ================================================================ -->
+    <section class="section" id="cctv-visit">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">CCTV Technical Visit</div>
+                <h2 class="section__title">Book a CCTV technician<br/>visit to your location</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">Whether it's a new installation, repair, or maintenance — check if a technician is available in your area and book instantly.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;" class="reveal" id="cctv-two-col">
+                <!-- Pincode checker -->
+                <div class="mini-checker">
+                    <h3>📍 Check Technician Availability</h3>
+                    <p>Enter your 6-digit pincode to see if a CCTV technician is available in your area.</p>
+                    <div class="mini-pincode-form">
+                        <input type="text" class="mini-pin-input" id="support-pincode" placeholder="Enter pincode" maxlength="6" />
+                        <button class="btn-cta" style="white-space:nowrap;" onclick="checkSupportPin()">Check →</button>
+                    </div>
+                    <div class="mini-result" id="support-pin-result"></div>
+                    <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;" id="pin-tags">
+                        <span style="font-size:.8rem;color:var(--zoho-mid);width:100%;margin-bottom:4px;">Quick select:</span>
+                        <span onclick="quickPin('600001')" style="background:var(--zoho-off);border:1px solid var(--zoho-border);padding:4px 12px;border-radius:50px;font-size:.78rem;cursor:pointer;">Chennai 600001</span>
+                        <span onclick="quickPin('600014')" style="background:var(--zoho-off);border:1px solid var(--zoho-border);padding:4px 12px;border-radius:50px;font-size:.78rem;cursor:pointer;">Adyar 600014</span>
+                        <span onclick="quickPin('600040')" style="background:var(--zoho-off);border:1px solid var(--zoho-border);padding:4px 12px;border-radius:50px;font-size:.78rem;cursor:pointer;">Anna Nagar 600040</span>
+                        <span onclick="quickPin('641001')" style="background:var(--zoho-off);border:1px solid var(--zoho-border);padding:4px 12px;border-radius:50px;font-size:.78rem;cursor:pointer;">Coimbatore 641001</span>
+                    </div>
+                </div>
+
+                <!-- Visit booking form -->
+                <div class="ticket-section" style="padding:28px;">
+                    <h3>🗓️ Request a CCTV Site Visit</h3>
+                    <p>Free for new installations. ₹299 inspection fee for repairs (adjusted against work cost).</p>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name *</label>
+                            <input type="text" id="cv-name" placeholder="Your name" />
+                        </div>
+                        <div class="form-group">
+                            <label>Phone *</label>
+                            <input type="tel" id="cv-phone" placeholder="+91 73057 92178" />
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Pincode *</label>
+                            <input type="text" id="cv-pin" placeholder="6-digit pincode" maxlength="6" />
+                        </div>
+                        <div class="form-group">
+                            <label>Visit Type</label>
+                            <select id="cv-type">
+              <option>New Installation</option>
+              <option>Camera Repair / Fix</option>
+              <option>DVR / NVR Issue</option>
+              <option>AMC Maintenance Visit</option>
+              <option>System Upgrade</option>
+            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Preferred Date & Time</label>
+                        <input type="date" id="cv-date" />
+                    </div>
+                    <div class="form-group">
+                        <label>Address</label>
+                        <textarea id="cv-address" placeholder="Full address or nearest landmark..." style="min-height:70px;"></textarea>
+                    </div>
+                    <button class="btn-cta" style="width:100%;justify-content:center;padding:12px;" onclick="submitCCTVVisit()">
+          Book Site Visit →
+        </button>
+                    <div id="cctv-visit-success" style="display:none;margin-top:14px;padding:14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);color:#166534;font-weight:700;font-size:.875rem;">
+                        ✅ Visit booked! Our team will confirm via phone within 2 hours.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     ENTERPRISE SUPPORT
+     ================================================================ -->
+    <section class="section section--alt" id="enterprise-support">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">Enterprise Support</div>
+                <h2 class="section__title">Dedicated enterprise<br/>support channel</h2>
+                <div class="section__divider"></div>
+                <p class="section__subtitle">Enterprise AMC clients get direct access to a dedicated engineer, priority queue, and guaranteed SLA response times.</p>
+            </div>
+
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;" class="reveal">
+                <div>
+                    <div class="enterprise-list">
+                        <div class="enterprise-item">
+                            <div class="enterprise-item__icon">⚡</div>
+                            <div>
+                                <h4>1-Hour P1 Response</h4>
+                                <p>Critical outages get a response within 1 hour — day or night, 365 days a year.</p>
+                            </div>
+                        </div>
+                        <div class="enterprise-item">
+                            <div class="enterprise-item__icon">👨‍💻</div>
+                            <div>
+                                <h4>Dedicated Engineer</h4>
+                                <p>Your account has a named engineer who knows your infrastructure and systems intimately.</p>
+                            </div>
+                        </div>
+                        <div class="enterprise-item">
+                            <div class="enterprise-item__icon">📊</div>
+                            <div>
+                                <h4>Monthly Reports</h4>
+                                <p>Board-ready monthly reports covering system health, incidents, resolutions, and recommendations.</p>
+                            </div>
+                        </div>
+                        <div class="enterprise-item">
+                            <div class="enterprise-item__icon">🔐</div>
+                            <div>
+                                <h4>SOC Monitoring</h4>
+                                <p>24/7 Security Operations Centre monitoring — threats detected and neutralised before they impact you.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="ticket-section">
+                        <h3>Enterprise Support Request</h3>
+                        <p>For enterprise clients — direct ticket to your dedicated support queue.</p>
+                        <div class="form-group">
+                            <label>Company Name *</label>
+                            <input type="text" id="ent-company" placeholder="Company name" />
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Contact Name *</label>
+                                <input type="text" id="ent-name" placeholder="Your name" />
+                            </div>
+                            <div class="form-group">
+                                <label>Phone *</label>
+                                <input type="tel" id="ent-phone" placeholder="+91 73057 92178" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Issue Severity</label>
+                            <select id="ent-sev">
+              <option>P1 — Critical (full outage)</option>
+              <option>P2 — High (major degradation)</option>
+              <option selected>P3 — Medium (single system)</option>
+              <option>P4 — Low (query / request)</option>
+            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Issue Description *</label>
+                            <textarea id="ent-issue" placeholder="Describe the issue..." style="min-height:100px;"></textarea>
+                        </div>
+                        <button class="btn-cta" style="width:100%;justify-content:center;padding:13px;" onclick="submitEnterprise()">
+            Submit Enterprise Ticket →
+          </button>
+                        <div id="ent-success" style="display:none;margin-top:14px;padding:14px;background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--radius-sm);color:#166534;font-weight:700;font-size:.875rem;">
+                            ✅ Enterprise ticket raised. Your dedicated engineer has been notified.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================================
+     FAQ
+     ================================================================ -->
+    <section class="section">
+        <div class="container">
+            <div class="section__header reveal">
+                <div class="section__label">FAQ</div>
+                <h2 class="section__title">Frequently asked questions</h2>
+                <div class="section__divider"></div>
+            </div>
+            <div style="max-width:720px;margin:0 auto;" class="reveal">
+                <details class="faq-item">
+                    <summary>How quickly will someone respond to my support ticket?</summary>
+                    <p>Response times depend on your plan. AMC clients get responses within 1–4 hours for critical issues. Non-AMC customers get a response within 8 hours during business hours (Mon–Sat 9am–8pm).</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Is CCTV site visit booking really free?</summary>
+                    <p>Yes — new installation site surveys are completely free with no obligation. For repair visits, there is a ₹299 inspection fee which is fully adjusted against the cost of any repair work done.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What areas do you cover for CCTV technician visits?</summary>
+                    <p>We currently cover Chennai and surrounding districts, Coimbatore, and Madurai. We're expanding to more Tamil Nadu locations — use the pincode checker to verify your area.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>Can I get emergency support outside business hours?</summary>
+                    <p>Yes — AMC Professional and Enterprise clients get 24/7 support. If you're not on an AMC plan, you can reach us at our emergency line for critical issues (charges may apply).</p>
+                </details>
+                <details class="faq-item">
+                    <summary>What should I include in my support ticket for faster resolution?</summary>
+                    <p>Include a clear description of the problem, when it started, any error messages you're seeing, and steps you've already tried. For CCTV issues, let us know the camera model and DVR type if you have it.</p>
+                </details>
+                <details class="faq-item">
+                    <summary>How do I become an AMC client for priority support?</summary>
+                    <p>Contact us via the form on the AMC page or call us directly. We'll assess your infrastructure and put together a bespoke plan. AMC plans start from ₹8,000/year.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-band">
+        <div class="container">
+            <div class="cta-band__inner">
+                <h2>Need immediate help?</h2>
+                <p>Call us directly or raise a ticket — our team is ready to assist you right now.</p>
+                <a href="tel:+917305792178" class="btn-white">📞 Call Us Now</a>
+                <a href="#raise-ticket" class="btn-outline-white">Raise a Ticket</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+                        <div style="background:var(--zoho-red);color:white;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">EL</div>
+                        <span style="font-size:1.2rem;font-weight:900;color:white;">ELLOLING</span>
+                    </div>
+                    <p>Your trusted technology partner for websites, apps, CCTV and enterprise IT maintenance.</p>
+                    <div class="footer__social">
+                        <a href="#">in</a><a href="#">𝕏</a><a href="#">ig</a><a href="#">fb</a>
+                    </div>
+                </div>
+                <div class="footer__col">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="support.html#raise-ticket">Raise a Ticket</a></li>
+                        <li><a href="support.html#cctv-visit">CCTV Site Visit</a></li>
+                        <li><a href="support.html#enterprise-support">Enterprise Support</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="amc.html">AMC Plans</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h5>Services</h5>
+                    <ul>
+                        <li><a href="web-development.html">Web & App Dev</a></li>
+                        <li><a href="cctv.html">CCTV & Surveillance</a></li>
+                        <li><a href="amc.html#cybersecurity">Cybersecurity</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer__col">
+                    <h5>Contact</h5>
+                    <ul>
+                        <li><a href="mailto:info@elloling.com">info@elloling.com</a></li>
+                        <li><a href="tel:+917305792178">+91 73057 92178</a></li>
+                        <li><a href="#">WhatsApp Chat</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>© 2026 ELLOLING Corporation. All rights reserved.</p>
+                <p>Made with ❤️ in Chennai, India</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="nav.js"></script>
+    <script>
+        const COVERED = [
+            [600001, 600130],
+            [601001, 601301],
+            [602001, 602106],
+            [603001, 603403],
+            [641001, 641062],
+            [641101, 641202],
+            [625001, 625025],
+            [625101, 625234],
+            [628001, 628952]
+        ];
+
+        function isCovered(pin) {
+            const n = parseInt(pin, 10);
+            return COVERED.some(([lo, hi]) => n >= lo && n <= hi);
+        }
+
+        function quickPin(p) {
+            document.getElementById('support-pincode').value = p;
+            checkSupportPin();
+        }
+
+        function checkSupportPin() {
+            const pin = document.getElementById('support-pincode').value.trim();
+            const res = document.getElementById('support-pin-result');
+            if (!/^\d{6}$/.test(pin)) {
+                res.className = 'mini-result no';
+                res.textContent = '⚠️ Please enter a valid 6-digit pincode.';
+                return;
+            }
+            res.className = 'mini-result wait';
+            res.textContent = '🔍 Checking...';
+            setTimeout(() => {
+                if (isCovered(pin)) {
+                    res.className = 'mini-result ok';
+                    res.innerHTML = '✅ Technicians available in <strong>' + pin + '</strong>! Fill in the visit form →';
+                    document.getElementById('cv-pin').value = pin;
+                } else {
+                    res.className = 'mini-result no';
+                    res.innerHTML = '📍 Not yet covered in <strong>' + pin + '</strong>. <a href="contact.html" style="color:var(--zoho-red);text-decoration:underline;">Contact us</a> and we\'ll arrange a visit.';
+                }
+            }, 800);
+        }
+
+        function submitTicket() {
+            const name    = document.getElementById('tk-name').value.trim();
+            const phone   = document.getElementById('tk-phone').value.trim();
+            const email   = document.getElementById('tk-email') ? document.getElementById('tk-email').value.trim() : '';
+            const plan    = document.getElementById('tk-plan')  ? document.getElementById('tk-plan').value.trim()  : '';
+            const priority= document.getElementById('tk-priority') ? document.getElementById('tk-priority').value.trim() : '';
+            const issue   = document.getElementById('tk-issue').value.trim();
+            const btn     = document.querySelector('#raise-ticket .btn-cta');
+
+            if (!name || !phone || !issue) {
+                alert('Please fill in your name, phone, and issue description.');
+                return;
+            }
+
+            if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+
+            const body = new FormData();
+            body.append('name',     name);
+            body.append('phone',    phone);
+            body.append('email',    email);
+            body.append('plan',     plan);
+            body.append('priority', priority);
+            body.append('issue',    issue);
+            body.append('_subject', 'New Support Ticket — ELLOLING');
+
+            fetch('https://formspree.io/f/xdayvoey', {
+                method: 'POST',
+                body: body,
+                headers: { 'Accept': 'application/json' }
+            })
+            .then(r => {
+                if (!r.ok) throw new Error('Server error');
+                const ticketId = Math.floor(100000 + Math.random() * 900000);
+                document.getElementById('ticket-id').textContent = ticketId;
+                document.getElementById('ticket-success').style.display = 'block';
+                if (btn) { btn.textContent = '✓ Ticket Submitted'; }
+            })
+            .catch(err => {
+                console.error('Formspree error:', err);
+                alert('Something went wrong. Please call +91 73057 92178 or email support@elloling.com');
+                if (btn) { btn.disabled = false; btn.textContent = 'Submit Support Ticket →'; }
+            });
+        }
+
+        function submitCCTVVisit() {
+            const name = document.getElementById('cv-name').value.trim();
+            const phone = document.getElementById('cv-phone').value.trim();
+            const pin = document.getElementById('cv-pin').value.trim();
+            if (!name || !phone || !pin) {
+                alert('Please fill in your name, phone, and pincode.');
+                return;
+            }
+            document.getElementById('cctv-visit-success').style.display = 'block';
+            document.querySelector('#cctv-visit .btn-cta[onclick="submitCCTVVisit()"]').disabled = true;
+            document.querySelector('#cctv-visit .btn-cta[onclick="submitCCTVVisit()"]').textContent = '✓ Visit Booked';
+        }
+
+        function submitEnterprise() {
+            const company = document.getElementById('ent-company').value.trim();
+            const phone = document.getElementById('ent-phone').value.trim();
+            const issue = document.getElementById('ent-issue').value.trim();
+            if (!company || !phone || !issue) {
+                alert('Please fill in company, phone, and issue description.');
+                return;
+            }
+            document.getElementById('ent-success').style.display = 'block';
+            document.querySelector('#enterprise-support .btn-cta').disabled = true;
+            document.querySelector('#enterprise-support .btn-cta').textContent = '✓ Ticket Raised';
+        }
+    </script>
+</body>
+
+</html>

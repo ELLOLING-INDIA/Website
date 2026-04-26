@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Pricing | ELLOLING</title>
+<meta name="description" content="Transparent, flexible pricing for web development, CCTV, automation and AMC plans. Get a custom quote for your business."/>
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png"/>
+  <link rel="manifest" href="site.webmanifest"/>
+  <!-- Security Headers -->
+  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN"/>
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin"/>
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()"/>
+  <meta name="robots" content="index, follow"/>
+  <meta name="theme-color" content="#1A1A2E"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;0,900;1,400&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+
+<!-- Google Analytics placeholder -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script> -->
+
+<style>
+.pricing-toggle {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  margin: 28px 0;
+}
+.toggle-label { font-size: .9rem; font-weight: 700; color: var(--zoho-mid); }
+.toggle-label.active { color: var(--zoho-dark); }
+.toggle-switch {
+  position: relative;
+  width: 52px; height: 28px;
+}
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.toggle-track {
+  position: absolute; inset: 0;
+  background: var(--zoho-border2);
+  border-radius: 28px;
+  cursor: pointer;
+  transition: background .3s;
+}
+.toggle-track::after {
+  content: '';
+  position: absolute;
+  width: 22px; height: 22px;
+  top: 3px; left: 3px;
+  background: white;
+  border-radius: 50%;
+  transition: transform .3s;
+  box-shadow: var(--shadow-sm);
+}
+.toggle-switch input:checked + .toggle-track { background: var(--zoho-red); }
+.toggle-switch input:checked + .toggle-track::after { transform: translateX(24px); }
+.badge-save {
+  background: #d1fae5;
+  color: #065f46;
+  font-size: .72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  letter-spacing: .3px;
+}
+
+.compare-table-wrap { overflow-x: auto; }
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+.compare-table th {
+  background: var(--zoho-dark);
+  color: white;
+  padding: 16px 18px;
+  font-size: .85rem;
+  font-weight: 700;
+  text-align: left;
+}
+.compare-table th:first-child { text-align: left; }
+.compare-table th:not(:first-child) { text-align: center; }
+.compare-table td {
+  padding: 14px 18px;
+  font-size: .875rem;
+  border-bottom: 1px solid var(--zoho-border);
+  color: var(--zoho-mid);
+}
+.compare-table td:first-child { font-weight: 600; color: var(--zoho-dark); }
+.compare-table td:not(:first-child) { text-align: center; }
+.compare-table tr:nth-child(even) td { background: var(--zoho-off); }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table .check  { color: #0d7a45; font-size: 1.1rem; }
+.compare-table .cross  { color: #cbd5e1; font-size: 1.1rem; }
+.compare-table .cat-row td { background: var(--zoho-off2); font-weight: 700; color: var(--zoho-dark); font-size: .8rem; letter-spacing: .5px; text-transform: uppercase; }
+
+.faq-list { display: flex; flex-direction: column; gap: 0; }
+.faq-item {
+  border-bottom: 1px solid var(--zoho-border);
+}
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+  font-size: .95rem;
+  color: var(--zoho-dark);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.faq-question span.icon { color: var(--zoho-red); font-size: 1.3rem; transition: transform .3s; flex-shrink:0; }
+.faq-item.open .faq-question span.icon { transform: rotate(45deg); }
+.faq-answer {
+  display: none;
+  padding: 0 0 20px;
+  font-size: .9rem;
+  color: var(--zoho-mid);
+  line-height: 1.7;
+}
+.faq-item.open .faq-answer { display: block; }
+
+@media(max-width:768px){
+  .compare-table { font-size: .8rem; }
+  .compare-table th, .compare-table td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="main-nav">
+  <a href="index.html" class="nav__logo">
+    <div class="nav__logo-mark">EL</div>
+    <span class="nav__logo-text">ELLO<span>LING</span></span>
+  </a>
+  <ul class="nav__links">
+    <li>
+      <a href="index.html#services">Services
+        <svg viewBox="0 0 12 12" fill="none"><path d="M2 4l4 4 4-4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" stroke="currentColor"/></svg>
+      </a>
+      <div class="nav__dropdown">
+        <a href="web-development.html">Website & App Development</a>
+        <a href="cctv.html">CCTV & Surveillance</a>
+        
+        <a href="amc.html">AMC (Maintenance)</a>
+        <a href="amc.html#cybersecurity">Cybersecurity</a>
+        <a href="amc.html#enterprise">Enterprise</a>
+      </div>
+    </li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="amc.html">AMC</a></li>
+    <li><a href="pricing.html" class="active">Pricing</a></li>
+    <li><a href="support.html">Support</a></li>
+    <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav__actions">
+    <button class="btn-ghost" onclick="location.href='contact.html'">Get a Quote</button>
+    <a href="contact.html" class="btn-cta">Get Started
+      <svg viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M7 2l5 5-5 5"/></svg>
+    </a>
+  </div>
+  <div class="nav__hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="nav__mobile" id="mobile-menu">
+  <a href="index.html">Home</a>
+  <a href="index.html#web">Website & App Dev</a>
+  <a href="amc.html">AMC / Maintenance</a>
+  <a href="amc.html#cybersecurity">Cybersecurity</a>
+  <a href="pricing.html">Pricing</a>
+  <a href="contact.html">Contact</a>
+  <a href="support.html">Support</a>
+  <a href="contact.html" class="mobile-cta">Get Started →</a>
+</div>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="container page-hero__inner">
+    <div class="page-hero__bread"><a href="index.html">Home</a>Pricing</div>
+    <div class="section__label" style="margin-bottom:12px;">Simple, Transparent Pricing</div>
+    <h1>Pay for what you need.<br/><span style="color:var(--zoho-red);">Nothing more.</span></h1>
+    <p>No hidden fees. No surprise invoices. Clear pricing for every service we offer — from a landing page to a full enterprise IT contract.</p>
+  </div>
+</section>
+
+<!-- AMC PRICING -->
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">AMC Plans</div>
+      <h2 class="section__title">Annual Maintenance Contracts</h2>
+      <div class="section__divider"></div>
+      <p class="section__subtitle">All plans include a dedicated account manager, monthly reporting, and a legally binding SLA. Cancel with 30 days notice.</p>
+    </div>
+
+    <div class="pricing-toggle reveal" id="billing-toggle">
+      <span class="toggle-label active" id="label-monthly">Monthly</span>
+      <label class="toggle-switch">
+        <input type="checkbox" id="billing-switch"/>
+        <div class="toggle-track"></div>
+      </label>
+      <span class="toggle-label" id="label-annual">Annual <span class="badge-save">Save 20%</span></span>
+    </div>
+
+    <div class="pricing-grid">
+      <!-- Essential -->
+      <div class="price-card reveal">
+        <div class="price-card__tier">Essential</div>
+        <h3>For Small Teams</h3>
+        <p style="font-size:.875rem;color:var(--zoho-mid);margin-bottom:4px;">Up to 15 users</p>
+        <div class="price-card__price">
+          <span class="currency">₹</span>
+          <span class="amount" id="price-essential">8,999</span>
+          <span class="period">/mo</span>
+        </div>
+        <p class="price-card__note" id="note-essential">billed monthly · excl. GST</p>
+        <ul class="price-card__features">
+          <li>Up to 15 users / devices</li>
+          <li>Business hours helpdesk (9am–6pm)</li>
+          <li>Monthly on-site visit</li>
+          <li>Basic network monitoring</li>
+          <li>Patch management</li>
+          <li>Email & cloud support</li>
+          <li class="unavail">24/7 support</li>
+          <li class="unavail">Cybersecurity add-on</li>
+          <li class="unavail">Dedicated engineer</li>
+        </ul>
+        <a href="contact.html" class="btn-plan">Get Started</a>
+      </div>
+
+      <!-- Professional -->
+      <div class="price-card featured reveal">
+        <div class="price-card__badge">Most Popular</div>
+        <div class="price-card__tier">Professional</div>
+        <h3>For Growing Business</h3>
+        <p style="font-size:.875rem;color:var(--zoho-mid);margin-bottom:4px;">Up to 50 users</p>
+        <div class="price-card__price">
+          <span class="currency">₹</span>
+          <span class="amount" id="price-professional">19,999</span>
+          <span class="period">/mo</span>
+        </div>
+        <p class="price-card__note" id="note-professional">billed monthly · excl. GST</p>
+        <ul class="price-card__features">
+          <li>Up to 50 users / devices</li>
+          <li>24/7 helpdesk support</li>
+          <li>Fortnightly on-site visits</li>
+          <li>Advanced RMM monitoring</li>
+          <li>Backup & recovery mgmt</li>
+          <li>CCTV maintenance included</li>
+          <li>Quarterly strategy review</li>
+          <li>Cybersecurity add-on available</li>
+          <li class="unavail">Dedicated on-site engineer</li>
+        </ul>
+        <a href="contact.html" class="btn-plan">Get Started</a>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="price-card reveal">
+        <div class="price-card__tier">Enterprise</div>
+        <h3>For Large Organisations</h3>
+        <p style="font-size:.875rem;color:var(--zoho-mid);margin-bottom:4px;">Unlimited users</p>
+        <div class="price-card__price">
+          <span class="currency" style="font-size:.95rem;margin-right:4px;"></span>
+          <span class="amount" style="font-size:1.8rem;letter-spacing:-1px;">Custom</span>
+        </div>
+        <p class="price-card__note">tailored to your requirements</p>
+        <ul class="price-card__features">
+          <li>Unlimited users & devices</li>
+          <li>Dedicated on-site engineer</li>
+          <li>4-hour hardware SLA</li>
+          <li>Full NOC monitoring</li>
+          <li>Disaster recovery planning</li>
+          <li>Cybersecurity SOC included</li>
+          <li>ISO 27001 compliance support</li>
+          <li>Monthly executive reporting</li>
+          <li>Dedicated account director</li>
+        </ul>
+        <a href="contact.html" class="btn-plan">Contact Sales</a>
+      </div>
+    </div>
+
+    <!-- One-off pricing note -->
+    <div style="margin-top:40px;background:var(--zoho-off);border:1px solid var(--zoho-border);border-radius:var(--radius);padding:28px 32px;display:flex;gap:20px;align-items:flex-start;" class="reveal">
+      <span style="font-size:1.5rem;flex-shrink:0;">💡</span>
+      <div>
+        <h4 style="font-size:1rem;margin-bottom:6px;">Web Development & CCTV — Fixed-Price Projects</h4>
+        <p style="font-size:.875rem;color:var(--zoho-mid);line-height:1.65;">Website, app, and CCTV installations are quoted as fixed-price projects based on your specific requirements. <a href="contact.html" style="color:var(--zoho-red);font-weight:700;">Request a free quote</a> — we'll scope and price within 24 hours. Typical web projects start from ₹29,999. CCTV installations from ₹12,999 (4-camera setup).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="section section--alt">
+  <div class="container">
+    <div class="section__header reveal">
+      <div class="section__label">Full Comparison</div>
+      <h2 class="section__title">What's included in each plan</h2>
+      <div class="section__divider"></div>
+    </div>
+
+    <div class="compare-table-wrap reveal">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Essential</th>
+            <th>Professional</th>
+            <th>Enterprise</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="cat-row"><td colspan="4">Support</td></tr>
+          <tr><td>Support Hours</td><td>9am–6pm Mon–Sat</td><td>24/7</td><td>24/7/365</td></tr>
+          <tr><td>Support Channels</td><td>Phone, Email</td><td>Phone, Email, Portal</td><td>Phone, Email, Portal, Slack</td></tr>
+          <tr><td>Dedicated Account Manager</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Dedicated Engineer</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Response Times</td></tr>
+          <tr><td>P1 Critical Response</td><td>4 hours</td><td>2 hours</td><td>1 hour</td></tr>
+          <tr><td>P2 High Response</td><td>8 hours</td><td>4 hours</td><td>2 hours</td></tr>
+          <tr><td>On-site Visit</td><td>Monthly</td><td>Fortnightly</td><td>As needed (unlimited)</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Monitoring & Management</td></tr>
+          <tr><td>Network Monitoring</td><td>Basic</td><td>Advanced RMM</td><td>Full NOC</td></tr>
+          <tr><td>Server Management</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Cloud Admin (M365/GWS)</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Patch Management</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Backup & Recovery</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Disaster Recovery Plan</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Security</td></tr>
+          <tr><td>Endpoint Antivirus</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>EDR (CrowdStrike/Sentinel)</td><td class="cross">✕</td><td>Add-on</td><td class="check">✓</td></tr>
+          <tr><td>Firewall Management</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Vulnerability Scanning</td><td class="cross">✕</td><td>Add-on</td><td class="check">✓</td></tr>
+          <tr><td>SOC / Threat Monitoring</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓</td></tr>
+          <tr><td>ISO 27001 Support</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Reporting</td></tr>
+          <tr><td>Monthly IT Reports</td><td class="check">✓</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Quarterly Strategy Review</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Executive Board Reports</td><td class="cross">✕</td><td class="cross">✕</td><td class="check">✓</td></tr>
+
+          <tr class="cat-row"><td colspan="4">Hardware & Other</td></tr>
+          <tr><td>Max Users / Devices</td><td>15</td><td>50</td><td>Unlimited</td></tr>
+          <tr><td>CCTV Maintenance</td><td class="cross">✕</td><td class="check">✓</td><td class="check">✓</td></tr>
+          <tr><td>Parts Replacement</td><td>Labour only</td><td>Labour + minor parts</td><td>Comprehensive</td></tr>
+          <tr><td>Uptime SLA</td><td>99.5%</td><td>99.8%</td><td>99.9%</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+  <div class="container" style="max-width:760px;">
+    <div class="section__header reveal">
+      <div class="section__label">FAQ</div>
+      <h2 class="section__title">Frequently Asked Questions</h2>
+      <div class="section__divider"></div>
+    </div>
+
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Can I change my AMC plan later?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">Yes — you can upgrade or downgrade your AMC plan at any time. Upgrades take effect immediately; downgrades apply at the next renewal date. We'll never lock you into something that doesn't fit.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Are projects like websites and CCTV included in AMC pricing?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">No — AMC plans cover ongoing IT maintenance and support. One-off projects (websites, apps, CCTV installations) are quoted separately as fixed-price engagements. However, AMC clients receive priority scheduling and a 10% discount on all project work.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          What is the minimum contract term?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">Our standard AMC is a 12-month contract, paid monthly or annually. Annual payment gives you a 20% saving. For enterprise clients, custom terms are available. Monthly-only rolling contracts are available at a slightly higher rate — ask us.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Do you serve businesses outside Chennai?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">Yes — our remote helpdesk and monitoring services are available across India. For on-site services, we currently cover Chennai and surrounding areas within Tamil Nadu. Enterprise clients in other cities can discuss dedicated on-site arrangements.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          How quickly can AMC coverage begin?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">After signing, our team conducts an onboarding audit of your infrastructure. Remote coverage typically begins within 48 hours. On-site onboarding is scheduled within the first 5 working days.</div>
+      </div>
+      <div class="faq-item reveal">
+        <button class="faq-question">
+          Is GST included in the prices shown?
+          <span class="icon">+</span>
+        </button>
+        <div class="faq-answer">All prices shown are exclusive of GST. Applicable GST (18%) will be added to your invoice. We provide full GST-compliant invoices for all services.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="container">
+    <div class="cta-band__inner">
+      <h2>Not sure which plan is right for you?</h2>
+      <p>Book a free 30-minute consultation and we'll recommend the perfect solution for your business size and budget.</p>
+      <a href="contact.html" class="btn-white">Book Free Consultation →</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;">
+          <div style="background:var(--zoho-red);color:white;width:36px;height:36px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:13px;flex-shrink:0;">EL</div>
+          <span style="font-size:1.2rem;font-weight:900;color:white;">ELLOLING</span>
+        </div>
+        <p>Your trusted technology partner for websites, apps, CCTV and enterprise IT maintenance.</p>
+        <div class="footer__social">
+          <a href="#">in</a><a href="#">𝕏</a><a href="#">ig</a><a href="#">fb</a>
+        </div>
+      </div>
+      <div class="footer__col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="index.html#web">Web & App Dev</a></li>
+          <li><a href="index.html#cctv">CCTV</a></li>
+          <li></li>
+          <li><a href="about.html">About</a></li>
+    <li><a href="amc.html">AMC</a></li>
+          <li><a href="amc.html#cybersecurity">Cybersecurity</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Pricing</h5>
+        <ul>
+          <li><a href="pricing.html">AMC Plans</a></li>
+          <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Web Dev Quote</a></li>
+          <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">CCTV Quote</a></li>
+          <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Enterprise</a></li>
+        </ul>
+      </div>
+      <div class="footer__col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:info@elloling.com">info@elloling.com</a></li>
+          <li><a href="tel:+917305792178">+91 73057 92178</a></li>
+          <li><a href="careers.html">Careers</a></li>
+    <li><a href="contact.html">Book a Call</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 ELLOLING Corporation. All rights reserved.</p>
+      <p>Made with ❤️ in Chennai, India</p>
+    </div>
+  </div>
+</footer>
+
+<script src="nav.js"></script>
+<script>
+// Billing toggle
+const sw = document.getElementById('billing-switch');
+const prices = {
+  essential:    { monthly: '8,999',  annual: '7,199'  },
+  professional: { monthly: '19,999', annual: '15,999' }
+};
+const notesM = { essential: 'billed monthly · excl. GST', professional: 'billed monthly · excl. GST' };
+const notesA = { essential: 'billed annually · excl. GST (save 20%)', professional: 'billed annually · excl. GST (save 20%)' };
+
+sw.addEventListener('change', () => {
+  const annual = sw.checked;
+  document.getElementById('label-monthly').classList.toggle('active', !annual);
+  document.getElementById('label-annual').classList.toggle('active', annual);
+  ['essential','professional'].forEach(k => {
+    document.getElementById('price-'+k).textContent = annual ? prices[k].annual : prices[k].monthly;
+    document.getElementById('note-'+k).textContent  = annual ? notesA[k] : notesM[k];
+  });
+});
+
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.faq-item');
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  });
+});
+</script>
+</body>
+</html>

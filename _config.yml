@@ -1,0 +1,18 @@
+# =====================================================
+# ELLOLING Corporation — GitHub Pages Configuration
+# =====================================================
+title: ELLOLING Corporation
+description: Your trusted technology partner for websites, apps, CCTV, automation, cybersecurity and enterprise IT.
+url: "https://ellolingindia.github.io"
+baseurl: ""
+
+markdown: kramdown
+theme: null
+
+exclude:
+  - README.md
+  - FORMSPREE_SETUP.md
+  - "*.sh"
+  - ".gitignore"
+  - firebase.json
+  - _htaccess
