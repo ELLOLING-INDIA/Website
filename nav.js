@@ -7,6 +7,23 @@
    ================================================================ */
 'use strict';
 
+/* Add the new portfolio and product pages to every shared navigation. */
+document.querySelectorAll('.nav__links').forEach(list => {
+    const contact = Array.from(list.children).find(item => item.textContent.trim() === 'Contact');
+    if (!contact || list.querySelector('a[href="portfolio.html"]')) return;
+    const portfolio = document.createElement('li');
+    portfolio.innerHTML = '<a href="portfolio.html">Portfolio</a>';
+    const accountant = document.createElement('li');
+    accountant.innerHTML = '<a href="accountant.html">The Accountant</a>';
+    list.insertBefore(portfolio, contact);
+    list.insertBefore(accountant, contact);
+});
+document.querySelectorAll('.nav__mobile').forEach(menu => {
+    const contact = menu.querySelector('a[href="contact.html"]');
+    if (!contact || menu.querySelector('a[href="portfolio.html"]')) return;
+    contact.insertAdjacentHTML('beforebegin', '<a href="portfolio.html">Portfolio</a><a href="accountant.html">The Accountant</a>');
+});
+
 /* ── Security helpers ── */
 const SEC = {
     /* Escape HTML to prevent XSS */
