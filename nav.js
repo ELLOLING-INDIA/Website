@@ -2,7 +2,7 @@
    ELLOLING Corporation — nav.js  (Production Build)
    Security: XSS sanitisation, input validation, CSP-safe,
              honeypot spam protection, rate-limiting, CSRF token
-   Contact : info@elloling.com | support@elloling.com
+   Contact : sales@elloling.com
    Phone   : +91 73057 92178
    ================================================================ */
 'use strict';
@@ -291,7 +291,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const msgs = {
             'support-form': ['Support Request Submitted!', 'Your ticket is logged. We will respond within your SLA time. For P1 emergencies call +91 73057 92178.'],
             'cctv-form': ['Survey Booked!', 'Our technician will confirm your site survey within 4 working hours. We will call you shortly.'],
-            'contact-form': ['Message Sent!', 'Thank you for reaching out. Our team will get back to you within one business day at info@elloling.com.']
+            'contact-form': ['Message Sent!', 'Thank you for reaching out. Our team will get back to you within one business day at sales@elloling.com.']
         };
         const [t, b] = msgs[formId] || msgs['contact-form'];
         window.showSuccessDialog(t, b);

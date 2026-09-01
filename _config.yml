@@ -3,8 +3,8 @@
 # =====================================================
 title: ELLOLING Corporation
 description: Your trusted technology partner for websites, apps, CCTV, automation, cybersecurity and enterprise IT.
-url: "https://ellolingindia.github.io"
-baseurl: ""
+url: "https://elloling-india.github.io"
+baseurl: "/Website"
 
 markdown: kramdown
 theme: null
