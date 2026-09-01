@@ -1050,6 +1050,32 @@ ul  { list-style:none; }
 .platform-badge--instagram svg { color:#d62976; }
 .platform-badge--whatsapp svg { color:#1fa855; }
 
+/* ── Shared site footer ── */
+.site-footer { background:#11131f; color:white; padding:68px 0 0; border-top:4px solid var(--zoho-red); }
+.site-footer__top { display:grid; grid-template-columns:1.45fr 1fr 1fr 1.05fr; gap:44px; padding-bottom:50px; }
+.site-footer__logo { display:inline-flex; align-items:center; gap:11px; color:white; font-size:1.2rem; font-weight:900; letter-spacing:-.3px; }
+.site-footer__logo img { width:40px; height:40px; border-radius:9px; }
+.site-footer__brand > p { max-width:350px; color:rgba(255,255,255,.58); font-size:.88rem; line-height:1.7; margin:18px 0; }
+.site-footer__founder { display:flex; align-items:center; gap:11px; margin:20px 0 14px; }
+.site-footer__founder img { width:42px; height:42px; border-radius:50%; object-fit:cover; object-position:center top; border:2px solid rgba(255,255,255,.18); }
+.site-footer__founder div { display:flex; flex-direction:column; }
+.site-footer__founder strong { font-size:.76rem; color:white; }
+.site-footer__founder span { font-size:.72rem; color:rgba(255,255,255,.5); }
+.site-footer__social { display:flex; gap:8px; }
+.site-footer__social a { width:38px; height:38px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(255,255,255,.13); border-radius:9px; color:rgba(255,255,255,.7); transition:all .2s; }
+.site-footer__social a:hover { color:white; background:var(--zoho-red); border-color:var(--zoho-red); transform:translateY(-2px); }
+.site-footer__social svg { width:18px; height:18px; }
+.site-footer__col { display:flex; flex-direction:column; align-items:flex-start; gap:10px; }
+.site-footer__col h5 { color:white; font-size:.82rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+.site-footer__col > a { color:rgba(255,255,255,.58); font-size:.82rem; line-height:1.5; transition:color .2s; }
+.site-footer__col > a:hover { color:#ff7b7e; }
+.site-footer__contact > p { color:rgba(255,255,255,.45); font-size:.78rem; line-height:1.7; margin-top:4px; }
+.site-footer__col .site-footer__cta { display:inline-flex; color:white; background:var(--zoho-red); border-radius:7px; padding:10px 13px; margin-top:7px; font-weight:700; }
+.site-footer__col .site-footer__cta:hover { color:white; background:var(--zoho-red-d); }
+.site-footer__bottom { min-height:66px; border-top:1px solid rgba(255,255,255,.1); display:flex; align-items:center; justify-content:space-between; gap:20px; color:rgba(255,255,255,.38); font-size:.75rem; }
+@media(max-width:960px){.site-footer__top{grid-template-columns:1.4fr 1fr 1fr}.site-footer__contact{grid-column:2/4}}
+@media(max-width:680px){.site-footer{padding-top:50px}.site-footer__top{grid-template-columns:1fr 1fr;gap:36px 24px}.site-footer__brand{grid-column:1/-1}.site-footer__contact{grid-column:1/-1}.site-footer__bottom{flex-direction:column;justify-content:center;text-align:center;padding:18px 0}}
+
 /* ================================================================
    ANIMATIONS
    ================================================================ */

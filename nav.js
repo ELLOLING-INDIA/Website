@@ -24,6 +24,46 @@ document.querySelectorAll('.nav__mobile').forEach(menu => {
     contact.insertAdjacentHTML('beforebegin', '<a href="portfolio.html">Portfolio</a><a href="accountant.html">The Accountant</a>');
 });
 
+/* Keep one complete, consistent footer across every page. */
+document.querySelectorAll('footer').forEach(footer => {
+    footer.id = 'site-footer';
+    footer.className = 'site-footer';
+    footer.innerHTML = `
+        <div class="container">
+            <div class="site-footer__top">
+                <div class="site-footer__brand">
+                    <a href="index.html" class="site-footer__logo">
+                        <img src="favicon-32x32.png" alt="ELLOLING"/>
+                        <span>ELLOLING</span>
+                    </a>
+                    <p>Technology, digital growth and operational support for small businesses—all through one accountable team.</p>
+                    <div class="site-footer__founder">
+                        <img src="founder-akash.jpg" alt="Akash Bill Bright"/>
+                        <div><strong>Follow the founder</strong><span>Akash Bill Bright</span></div>
+                    </div>
+                    <div class="site-footer__social" aria-label="Akash Bill Bright social profiles">
+                        <a href="https://in.linkedin.com/in/akash-bill-bright" target="_blank" rel="noopener" aria-label="Akash Bill Bright on LinkedIn" title="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.3H3.2V21h3.3V8.3ZM4.8 3A1.9 1.9 0 1 0 4.8 6.8 1.9 1.9 0 0 0 4.8 3ZM21 13.7c0-3.8-2-5.6-4.7-5.6-2.2 0-3.1 1.2-3.7 2v-1.8H9.3V21h3.3v-6.3c0-1.7.3-3.3 2.4-3.3 2 0 2.1 1.9 2.1 3.4V21H21v-7.3Z" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/akashbillbright/" target="_blank" rel="noopener" aria-label="Akash Bill Bright on Instagram" title="Instagram">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.7" r="1.2" fill="currentColor"/></svg>
+                        </a>
+                        <a href="https://www.youtube.com/c/AkashBillBright" target="_blank" rel="noopener" aria-label="The Bright Show on YouTube" title="YouTube">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 7.2a3 3 0 0 0-2.1-2.1C17.6 4.6 12 4.6 12 4.6s-5.6 0-7.4.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.4.5 7.4.5s5.6 0 7.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.5-4.8Z" fill="currentColor"/><path d="m10 15.4 5-3.4-5-3.4v6.8Z" fill="#11131f"/></svg>
+                        </a>
+                        <a href="https://wa.me/917305792178" target="_blank" rel="noopener" aria-label="Contact Akash Bill Bright on WhatsApp" title="WhatsApp">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.7a8 8 0 0 1-11.8 7l-4.2 1.1 1.1-4A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8.3c.3-.5.6-.5.9-.1l1 1.7c.2.3.1.6-.2.9l-.6.6c.7 1.4 1.7 2.4 3.1 3l.6-.7c.2-.3.5-.4.9-.2l1.7.8c.4.2.4.6.2.9-.5.8-1.3 1.4-2.2 1.3-3.5-.4-6.3-3.1-6.8-6.5-.1-.7.5-1.4 1.4-1.7Z" fill="currentColor"/></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="site-footer__col"><h5>Services</h5><a href="web-development.html">Web &amp; App Development</a><a href="digital-marketing.html">Digital Marketing</a><a href="digital-marketing.html#fix-your-business-90-days">90-Day Business Programme</a><a href="cctv.html">CCTV &amp; Surveillance</a><a href="amc.html">AMC &amp; Maintenance</a></div>
+                <div class="site-footer__col"><h5>Company</h5><a href="about.html">About ELLOLING</a><a href="portfolio.html">Company &amp; Founder Portfolio</a><a href="accountant.html">The Accountant</a><a href="careers.html">Careers</a><a href="support.html">Support</a></div>
+                <div class="site-footer__col site-footer__contact"><h5>Start a Conversation</h5><a href="tel:+917305792178">+91 73057 92178</a><a href="mailto:sales@elloling.com">sales@elloling.com</a><p>Chennai, Tamil Nadu<br/>Tuesday–Saturday<br/>10:30 AM–8:30 PM</p><a href="contact.html" class="site-footer__cta">Contact ELLOLING →</a></div>
+            </div>
+            <div class="site-footer__bottom"><span>© 2026 ELLOLING Corporation. All rights reserved.</span><span>Built in Chennai for businesses everywhere.</span></div>
+        </div>`;
+});
+
 /* ── Security helpers ── */
 const SEC = {
     /* Escape HTML to prevent XSS */
