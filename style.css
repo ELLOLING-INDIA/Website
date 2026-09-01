@@ -1016,6 +1016,33 @@ ul  { list-style:none; }
   .contact-form { padding: 28px 20px; }
 }
 
+/* ── 90-day growth programme + homepage video placeholder ── */
+.growth90 {
+  padding: 88px 0;
+  background: linear-gradient(135deg, #17172a 0%, #22264a 100%);
+  color: white;
+}
+.growth90__grid { display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center; }
+.growth90__eyebrow { display:inline-flex; padding:7px 13px; border:1px solid rgba(255,255,255,.18); border-radius:50px; color:#ff8f91; font-size:.76rem; font-weight:900; letter-spacing:1px; text-transform:uppercase; }
+.growth90 h2 { color:white; font-size:clamp(2.4rem,4.8vw,4.3rem); margin:18px 0; }
+.growth90 h2 span { color:var(--zoho-red); }
+.growth90__lead { color:rgba(255,255,255,.72); font-size:1.02rem; max-width:620px; }
+.growth90__eligibility { margin:24px 0; display:inline-flex; align-items:center; gap:9px; padding:10px 14px; background:rgba(255,255,255,.08); border-radius:8px; font-size:.86rem; font-weight:700; }
+.growth90__phases { display:grid; gap:12px; }
+.growth90__phase { display:grid; grid-template-columns:76px 1fr; gap:16px; padding:19px; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.1); border-radius:10px; }
+.growth90__days { color:#ff8f91; font-size:.72rem; font-weight:900; letter-spacing:.8px; }
+.growth90__phase h3 { color:white; font-size:1rem; margin-bottom:5px; }
+.growth90__phase p { color:rgba(255,255,255,.6); font-size:.83rem; line-height:1.55; }
+.growth90__support { margin-top:13px; padding:17px 19px; border-left:3px solid var(--zoho-red); background:rgba(228,37,39,.1); color:rgba(255,255,255,.75); font-size:.86rem; }
+.video-section { padding:88px 0; background:var(--white); }
+.video-placeholder { position:relative; aspect-ratio:16/9; max-width:1040px; margin:38px auto 0; border-radius:16px; overflow:hidden; background:linear-gradient(145deg,#161629,#28325b); box-shadow:var(--shadow-lg); display:flex; align-items:center; justify-content:center; text-align:center; color:white; }
+.video-placeholder::before { content:''; position:absolute; inset:0; background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px); background-size:42px 42px; }
+.video-placeholder__content { position:relative; padding:28px; }
+.video-placeholder__play { width:74px; height:74px; margin:0 auto 18px; border-radius:50%; display:flex; align-items:center; justify-content:center; background:var(--zoho-red); font-size:1.5rem; box-shadow:0 12px 28px rgba(228,37,39,.35); }
+.video-placeholder h3 { color:white; font-size:1.45rem; margin-bottom:7px; }
+.video-placeholder p { color:rgba(255,255,255,.62); font-size:.9rem; }
+@media(max-width:768px){.growth90__grid{grid-template-columns:1fr;gap:36px}.growth90__phase{grid-template-columns:1fr}.growth90,.video-section{padding:68px 0}}
+
 /* ================================================================
    ANIMATIONS
    ================================================================ */
