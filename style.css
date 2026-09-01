@@ -1043,6 +1043,13 @@ ul  { list-style:none; }
 .video-placeholder p { color:rgba(255,255,255,.62); font-size:.9rem; }
 @media(max-width:768px){.growth90__grid{grid-template-columns:1fr;gap:36px}.growth90__phase{grid-template-columns:1fr}.growth90,.video-section{padding:68px 0}}
 
+.platform-strip { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin:10px 0 18px; }
+.platform-badge { display:inline-flex; align-items:center; gap:7px; padding:8px 12px; background:white; border:1px solid var(--zoho-border); border-radius:50px; font-size:.76rem; color:var(--zoho-dark); box-shadow:var(--shadow-sm); }
+.platform-badge svg { width:22px; height:22px; }
+.platform-badge--meta svg { color:#0866ff; width:27px; }
+.platform-badge--instagram svg { color:#d62976; }
+.platform-badge--whatsapp svg { color:#1fa855; }
+
 /* ================================================================
    ANIMATIONS
    ================================================================ */
