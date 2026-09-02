@@ -16,6 +16,9 @@ body{font-family:'Inter',sans-serif;color:var(--acct-ink);background:#fff}.accou
 @media(max-width:800px){.accountant-nav__links a:not(.accountant-button){display:none}.accountant-nav__links{gap:10px}.accountant-brand__by{display:none}.accountant-hero{min-height:520px;padding:65px 18px}.accountant-hero h1{letter-spacing:-1.5px}.workflow-grid{grid-template-columns:1fr 1fr}.accountant-trust{grid-template-columns:1fr}.accountant-section{padding-top:60px;padding-bottom:60px}}
 @media(max-width:540px){.accountant-nav{padding-inline:14px}.accountant-brand__name{font-size:1.05rem}.accountant-button--small{padding:0 13px;font-size:.72rem}.accountant-actions{flex-direction:column;align-items:stretch}.workflow-grid{grid-template-columns:1fr}.accountant-hero p{font-size:.9rem}.accountant-heading{letter-spacing:-1px}}
 </style>
+<style>
+.accountant-trial-form{display:flex;gap:10px;max-width:520px;margin:22px auto 0}.accountant-trial-form input{flex:1;min-width:0;border:1px solid var(--acct-line);border-radius:9px;padding:0 16px;font:inherit}.accountant-trial-form .accountant-button{border:0;cursor:pointer}.accountant-form-note{font-size:.72rem!important;margin:10px 0 0!important;color:#718096!important}@media(max-width:540px){.accountant-trial-form{flex-direction:column}.accountant-trial-form input{min-height:48px}}
+</style>
 </head>
 <body>
 <nav class="accountant-nav">
@@ -52,7 +55,7 @@ body{font-family:'Inter',sans-serif;color:var(--acct-ink);background:#fff}.accou
     </div>
   </section>
   <section class="accountant-section" id="pricing">
-    <div class="accountant-pricing"><div class="accountant-label">Early Access</div><h2 class="accountant-heading">Start with your<em>real workflow.</em></h2><p style="color:var(--acct-text);line-height:1.7;">Accountant is currently running with selected businesses. Early access helps us shape the workspace around genuine accounting operations.</p><div class="accountant-pricing__card"><span class="accountant-pricing__status">SELECTED BUSINESS TRIAL</span><h3>Founding workspace</h3><p>Share your current process with Elloling and explore whether the trial fits your business.</p><a href="contact.html" class="accountant-button">Request early access →</a></div></div>
+    <div class="accountant-pricing"><div class="accountant-label">Early Access</div><h2 class="accountant-heading">Start with your<em>real workflow.</em></h2><p style="color:var(--acct-text);line-height:1.7;">Accountant is currently running with selected businesses. Early access helps us shape the workspace around genuine accounting operations.</p><div class="accountant-pricing__card"><span class="accountant-pricing__status">SELECTED BUSINESS TRIAL</span><h3>Join the early-access list</h3><p>For the trial, we only need your email. We will contact you when a suitable testing place becomes available.</p><form id="accountant-form" class="accountant-trial-form"><input type="hidden" name="_subject" value="Accountant by Elloling — Early Access"/><input type="text" name="_trap" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true"/><label for="accountant-email" class="sr-only">Work email</label><input id="accountant-email" name="email" type="email" placeholder="Your work email" autocomplete="email" required/><button type="submit" class="accountant-button">Request access →</button></form><p class="accountant-form-note">No spam. Your email is used only for Accountant early-access updates.</p></div></div>
   </section>
 </main>
 <footer></footer>

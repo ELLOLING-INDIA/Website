@@ -10,18 +10,20 @@
 /* Add the new portfolio and product pages to every shared navigation. */
 document.querySelectorAll('.nav__links').forEach(list => {
     const contact = Array.from(list.children).find(item => item.textContent.trim() === 'Contact');
-    if (!contact || list.querySelector('a[href="portfolio.html"]')) return;
-    const portfolio = document.createElement('li');
-    portfolio.innerHTML = '<a href="portfolio.html">Portfolio</a>';
-    const accountant = document.createElement('li');
-    accountant.innerHTML = '<a href="accountant.html">The Accountant</a>';
-    list.insertBefore(portfolio, contact);
-    list.insertBefore(accountant, contact);
+    if (!contact) return;
+    [['portfolio.html','Portfolio'],['accountant.html','The Accountant'],['blog.html','Insights']].forEach(([href,label]) => {
+        if (list.querySelector(`a[href="${href}"]`)) return;
+        const item = document.createElement('li');
+        item.innerHTML = `<a href="${href}">${label}</a>`;
+        list.insertBefore(item, contact);
+    });
 });
 document.querySelectorAll('.nav__mobile').forEach(menu => {
     const contact = menu.querySelector('a[href="contact.html"]');
-    if (!contact || menu.querySelector('a[href="portfolio.html"]')) return;
-    contact.insertAdjacentHTML('beforebegin', '<a href="portfolio.html">Portfolio</a><a href="accountant.html">The Accountant</a>');
+    if (!contact) return;
+    [['portfolio.html','Portfolio'],['accountant.html','The Accountant'],['blog.html','Insights']].forEach(([href,label]) => {
+        if (!menu.querySelector(`a[href="${href}"]`)) contact.insertAdjacentHTML('beforebegin', `<a href="${href}">${label}</a>`);
+    });
 });
 
 /* Keep one complete, consistent footer across every page. */
@@ -57,10 +59,10 @@ document.querySelectorAll('footer').forEach(footer => {
                     </div>
                 </div>
                 <div class="site-footer__col"><h5>Services</h5><a href="web-development.html">Web &amp; App Development</a><a href="digital-marketing.html">Digital Marketing</a><a href="digital-marketing.html#fix-your-business-90-days">90-Day Business Programme</a><a href="cctv.html">CCTV &amp; Surveillance</a><a href="amc.html">AMC &amp; Maintenance</a></div>
-                <div class="site-footer__col"><h5>Company</h5><a href="about.html">About ELLOLING</a><a href="portfolio.html">Company &amp; Founder Portfolio</a><a href="accountant.html">The Accountant</a><a href="careers.html">Careers</a><a href="support.html">Support</a></div>
+                <div class="site-footer__col"><h5>Company</h5><a href="about.html">About ELLOLING</a><a href="portfolio.html">Company &amp; Founder Portfolio</a><a href="accountant.html">The Accountant</a><a href="blog.html">Business Insights</a><a href="careers.html">Careers</a><a href="support.html">Support</a></div>
                 <div class="site-footer__col site-footer__contact"><h5>Start a Conversation</h5><a href="tel:+917305792178">+91 73057 92178</a><a href="mailto:sales@elloling.com">sales@elloling.com</a><p>Chennai, Tamil Nadu<br/>Tuesday–Saturday<br/>10:30 AM–8:30 PM</p><a href="contact.html" class="site-footer__cta">Contact ELLOLING →</a></div>
             </div>
-            <div class="site-footer__bottom"><span>© 2026 ELLOLING Corporation. All rights reserved.</span><span>Built in Chennai for businesses everywhere.</span></div>
+            <div class="site-footer__bottom"><span>© 2026 ELLOLING Corporation. All rights reserved. · <a href="privacy.html">Privacy</a></span><span>Built in Chennai for businesses everywhere.</span></div>
         </div>`;
 });
 
@@ -258,7 +260,7 @@ document.addEventListener('DOMContentLoaded', () => {
     seedCsrfTokens();
 
     /* ── Form submission handler ── */
-    ['contact-form', 'support-form', 'cctv-form'].forEach(id => {
+    ['contact-form', 'support-form', 'cctv-form', 'accountant-form'].forEach(id => {
         const form = document.getElementById(id);
         if (!form) return;
 
@@ -348,6 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const msgs = {
             'support-form': ['Support Request Submitted!', 'Your ticket is logged. We will respond within your SLA time. For P1 emergencies call +91 73057 92178.'],
             'cctv-form': ['Survey Booked!', 'Our technician will confirm your site survey within 4 working hours. We will call you shortly.'],
+            'accountant-form': ['You’re on the early-access list!', 'Thank you. We will email you when an Accountant trial place becomes available.'],
             'contact-form': ['Message Sent!', 'Thank you for reaching out. Our team will get back to you within one business day at sales@elloling.com.']
         };
         const [t, b] = msgs[formId] || msgs['contact-form'];
