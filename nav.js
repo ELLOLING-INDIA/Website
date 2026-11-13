@@ -38,20 +38,14 @@ document.querySelectorAll('footer').forEach(footer => {
                         <img src="favicon-32x32.png" alt="ELLOLING"/>
                         <span>ELLOLING</span>
                     </a>
-                    <p>Technology, digital growth and operational support for small businesses—all through one accountable team.</p>
+                    <p>Product development, startup operations and technology support for growing businesses—all through one accountable team.</p>
                     <div class="site-footer__founder">
                         <img src="founder-akash.jpg" alt="Akash Bill Bright"/>
                         <div><strong>Follow the founder</strong><span>Akash Bill Bright</span></div>
                     </div>
-                    <div class="site-footer__social" aria-label="Akash Bill Bright social profiles">
+                    <div class="site-footer__social" aria-label="Contact and professional links">
                         <a href="https://in.linkedin.com/in/akash-bill-bright" target="_blank" rel="noopener" aria-label="Akash Bill Bright on LinkedIn" title="LinkedIn">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.5 8.3H3.2V21h3.3V8.3ZM4.8 3A1.9 1.9 0 1 0 4.8 6.8 1.9 1.9 0 0 0 4.8 3ZM21 13.7c0-3.8-2-5.6-4.7-5.6-2.2 0-3.1 1.2-3.7 2v-1.8H9.3V21h3.3v-6.3c0-1.7.3-3.3 2.4-3.3 2 0 2.1 1.9 2.1 3.4V21H21v-7.3Z" fill="currentColor"/></svg>
-                        </a>
-                        <a href="https://www.instagram.com/akashbillbright/" target="_blank" rel="noopener" aria-label="Akash Bill Bright on Instagram" title="Instagram">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.5" cy="6.7" r="1.2" fill="currentColor"/></svg>
-                        </a>
-                        <a href="https://www.youtube.com/c/AkashBillBright" target="_blank" rel="noopener" aria-label="The Bright Show on YouTube" title="YouTube">
-                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 7.2a3 3 0 0 0-2.1-2.1C17.6 4.6 12 4.6 12 4.6s-5.6 0-7.4.5a3 3 0 0 0-2.1 2.1A31 31 0 0 0 2 12a31 31 0 0 0 .5 4.8 3 3 0 0 0 2.1 2.1c1.8.5 7.4.5 7.4.5s5.6 0 7.4-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 22 12a31 31 0 0 0-.5-4.8Z" fill="currentColor"/><path d="m10 15.4 5-3.4-5-3.4v6.8Z" fill="#11131f"/></svg>
                         </a>
                         <a href="https://wa.me/917305792178" target="_blank" rel="noopener" aria-label="Contact Akash Bill Bright on WhatsApp" title="WhatsApp">
                             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.7a8 8 0 0 1-11.8 7l-4.2 1.1 1.1-4A8 8 0 1 1 20 11.7Z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 8.3c.3-.5.6-.5.9-.1l1 1.7c.2.3.1.6-.2.9l-.6.6c.7 1.4 1.7 2.4 3.1 3l.6-.7c.2-.3.5-.4.9-.2l1.7.8c.4.2.4.6.2.9-.5.8-1.3 1.4-2.2 1.3-3.5-.4-6.3-3.1-6.8-6.5-.1-.7.5-1.4 1.4-1.7Z" fill="currentColor"/></svg>
