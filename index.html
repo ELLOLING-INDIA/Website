@@ -48,7 +48,17 @@
   flex-wrap: wrap;
 }
 .trusted__label { font-size:.8rem; font-weight:700; color:var(--zoho-light); text-transform:uppercase; letter-spacing:1px; white-space:nowrap; }
-.trusted__logos { display:flex; gap:32px; flex-wrap:wrap; align-items:center; }
+.trusted__inner { flex-wrap:nowrap; gap:24px; }
+.trusted__label { flex-shrink:0; }
+.trusted__viewport { flex:1; min-width:0; overflow:hidden; }
+.trusted__track { display:flex; width:max-content; animation:clients-scroll 48s linear infinite; }
+.trusted__logos { display:flex; gap:40px; flex-wrap:nowrap; align-items:center; flex-shrink:0; padding-right:40px; }
+.trusted__logo { white-space:nowrap; flex-shrink:0; }
+.trusted__pause { flex-shrink:0; border:1px solid #cbd5e1; background:transparent; color:#475569; padding:6px 10px; border-radius:4px; cursor:pointer; font:inherit; font-size:.75rem; }
+.trusted__pause:focus-visible { outline:2px solid #1565d8; outline-offset:3px; }
+@keyframes clients-scroll { to { transform:translateX(-50%); } }
+@media(max-width:600px) { .trusted__inner { gap:12px; padding-inline:16px; } .trusted__label { font-size:.65rem; } }
+@media(prefers-reduced-motion:reduce) { .trusted__track { animation:none; } .trusted__viewport { overflow-x:auto; } .trusted__logos[aria-hidden] { display:none; } .trusted__pause { display:none; } }
 .trusted__logo  { font-size:.9rem; font-weight:700; color:var(--zoho-border2); letter-spacing:.5px; }
 
 /* Home services section */
@@ -209,7 +219,8 @@
 <div class="trusted">
   <div class="trusted__inner">
     <span class="trusted__label">Trusted by</span>
-    <div class="trusted__logos"><span class="trusted__logo" style="color:#475569">ELLCY</span><span class="trusted__logo" style="color:#475569">Hasiria Marketing</span><span class="trusted__logo" style="color:#475569">Maysha Fashion</span><span class="trusted__logo" style="color:#475569">Studio 99 Hair &amp; Beauty Unisex Salon — JP Nagar</span><span class="trusted__logo" style="color:#475569">Amen’s Kitchen</span><span class="trusted__logo" style="color:#475569">Carvic Cakes and Bakes</span><span class="trusted__logo" style="color:#475569">Just Scrap</span><span class="trusted__logo" style="color:#475569">Yellow Link Media</span><span class="trusted__logo" style="color:#475569">silaii.com</span><span class="trusted__logo" style="color:#475569">Anand</span></div>
+    <div class="trusted__viewport"><div class="trusted__track" id="client-track"><div class="trusted__logos"><span class="trusted__logo" style="color:#475569">ELLCY</span><span class="trusted__logo" style="color:#475569">Hasiria Marketing</span><span class="trusted__logo" style="color:#475569">Maysha Fashion</span><span class="trusted__logo" style="color:#475569">Studio 99 Hair &amp; Beauty Unisex Salon — JP Nagar</span><span class="trusted__logo" style="color:#475569">Amen’s Kitchen</span><span class="trusted__logo" style="color:#475569">Carvic Cakes and Bakes</span><span class="trusted__logo" style="color:#475569">Just Scrap</span><span class="trusted__logo" style="color:#475569">Yellow Link Media</span><span class="trusted__logo" style="color:#475569">silaii.com</span><span class="trusted__logo" style="color:#475569">Anand Arts and Craft</span><span class="trusted__logo" style="color:#475569">San Prints and Packs</span></div><div class="trusted__logos" aria-hidden="true"><span class="trusted__logo" style="color:#475569">ELLCY</span><span class="trusted__logo" style="color:#475569">Hasiria Marketing</span><span class="trusted__logo" style="color:#475569">Maysha Fashion</span><span class="trusted__logo" style="color:#475569">Studio 99 Hair &amp; Beauty Unisex Salon — JP Nagar</span><span class="trusted__logo" style="color:#475569">Amen’s Kitchen</span><span class="trusted__logo" style="color:#475569">Carvic Cakes and Bakes</span><span class="trusted__logo" style="color:#475569">Just Scrap</span><span class="trusted__logo" style="color:#475569">Yellow Link Media</span><span class="trusted__logo" style="color:#475569">silaii.com</span><span class="trusted__logo" style="color:#475569">Anand Arts and Craft</span><span class="trusted__logo" style="color:#475569">San Prints and Packs</span></div></div></div>
+    <button class="trusted__pause" type="button" aria-controls="client-track" aria-pressed="false" onclick="const paused=this.getAttribute('aria-pressed')!=='true';this.setAttribute('aria-pressed',String(paused));document.getElementById('client-track').style.animationPlayState=paused?'paused':'running';this.textContent=paused?'Play':'Pause';">Pause</button>
   </div>
 </div>
 
