@@ -9,11 +9,11 @@
 
 /* Keep the public navigation focused on the two current service lines. */
 document.querySelectorAll('.nav__links').forEach(list => {
-    list.innerHTML = '<li><a href="index.html#services">Services</a></li><li><a href="about.html">About</a></li><li><a href="amc.html">AMC</a></li><li><a href="careers.html">Careers</a></li><li><a href="contact.html">Contact</a></li>';
+    list.innerHTML = '<li><a href="index.html#services">Services</a></li><li><a href="about.html">About</a></li><li><a href="amc.html">AMC</a></li><li><a href="shop.html">Shop</a></li><li><a href="contact.html">Contact</a></li>';
 });
 document.querySelectorAll('.nav__actions').forEach(actions => actions.remove());
 document.querySelectorAll('.nav__mobile').forEach(menu => {
-    menu.innerHTML = '<a href="index.html#services">Services</a><a href="about.html">About</a><a href="amc.html">AMC</a><a href="careers.html">Careers</a><a href="contact.html">Contact</a>';
+    menu.innerHTML = '<a href="index.html#services">Services</a><a href="about.html">About</a><a href="amc.html">AMC</a><a href="shop.html">Shop</a><a href="contact.html">Contact</a>';
 });
 
 /* Keep one complete, consistent footer across every page. */
@@ -43,7 +43,7 @@ document.querySelectorAll('footer').forEach(footer => {
                     </div>
                 </div>
                 <div class="site-footer__col"><h5>Services</h5><a href="web-development.html">Software Development</a><a href="amc.html">AMC for Startups &amp; Businesses</a><a href="https://forms.gle/r56nBCRihavSxt9x7" target="_blank" rel="noopener" data-service-track="business_consulting_footer">Business Consulting</a></div>
-                <div class="site-footer__col"><h5>Company</h5><a href="about.html">About ELLOLING</a><a href="portfolio.html">Business Case Studies</a><a href="careers.html">Careers</a><a href="support.html">Support</a></div>
+                <div class="site-footer__col"><h5>Company</h5><a href="about.html">About ELLOLING</a><a href="portfolio.html">Business Case Studies</a><a href="blog.html">Software Insights</a><a href="shop.html">Shop</a><a href="support.html">Support</a></div>
                 <div class="site-footer__col site-footer__contact"><h5>Start a Conversation</h5><a href="tel:+917305792178">+91 73057 92178</a><a href="mailto:sales@elloling.com">sales@elloling.com</a><a href="https://maps.app.goo.gl/Cm6SBv73KztvQRje7" target="_blank" rel="noopener">Read our Google reviews →</a><p>Chennai, Tamil Nadu<br/>Tuesday–Saturday<br/>10:30 AM–8:30 PM</p><a href="contact.html" class="site-footer__cta">Contact ELLOLING →</a></div>
             </div>
             <div class="site-footer__bottom"><span>© 2026 ELLOLING Corporation. All rights reserved. · <a href="privacy.html">Privacy</a></span><span>Built in Chennai for businesses everywhere.</span></div>
