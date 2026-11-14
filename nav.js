@@ -42,7 +42,7 @@ document.querySelectorAll('footer').forEach(footer => {
                         </a>
                     </div>
                 </div>
-                <div class="site-footer__col"><h5>Services</h5><a href="web-development.html">Product Development</a><a href="amc.html">AMC for Startups &amp; Businesses</a></div>
+                <div class="site-footer__col"><h5>Services</h5><a href="web-development.html">Software Development</a><a href="amc.html">AMC for Startups &amp; Businesses</a><a href="https://forms.gle/r56nBCRihavSxt9x7" target="_blank" rel="noopener" data-service-track="business_consulting_footer">Business Consulting</a></div>
                 <div class="site-footer__col"><h5>Company</h5><a href="about.html">About ELLOLING</a><a href="portfolio.html">Business Case Studies</a><a href="careers.html">Careers</a><a href="support.html">Support</a></div>
                 <div class="site-footer__col site-footer__contact"><h5>Start a Conversation</h5><a href="tel:+917305792178">+91 73057 92178</a><a href="mailto:sales@elloling.com">sales@elloling.com</a><a href="https://maps.app.goo.gl/Cm6SBv73KztvQRje7" target="_blank" rel="noopener">Read our Google reviews →</a><p>Chennai, Tamil Nadu<br/>Tuesday–Saturday<br/>10:30 AM–8:30 PM</p><a href="contact.html" class="site-footer__cta">Contact ELLOLING →</a></div>
             </div>
@@ -422,3 +422,14 @@ document.querySelectorAll('img').forEach(img => {
 /* ── Console warning for would-be hackers ── */
 console.log('%c\u26a0\ufe0f ELLOLING Corporation', 'color:#E42527;font-size:18px;font-weight:bold;');
 console.log('%cThis is a production website. Unauthorised attempts to tamper with this site are logged and may be reported.', 'color:#555;font-size:12px;');
+
+/* Optional first-party aggregate reporting collector. Empty until deployed. */
+const reportingEndpoint = '';
+document.addEventListener('click', event => {
+ const link = event.target.closest('a'); if (!link) return;
+ const href=link.getAttribute('href') || '';
+ const service=href.includes('forms.gle/r56nBCRihavSxt9x7')?'business_consulting':href.includes('web-development.html')?'software_development':href.includes('amc.html')?'amc_services':link.dataset.serviceTrack;
+ if (!['software_development','amc_services','business_consulting'].includes(service)) return;
+ if (navigator.globalPrivacyControl || navigator.doNotTrack==='1') return;
+ if (reportingEndpoint) navigator.sendBeacon(reportingEndpoint,new URLSearchParams({service}));
+});

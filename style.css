@@ -1099,3 +1099,6 @@ ul  { list-style:none; }
   transition: opacity .6s ease, transform .6s ease;
 }
 .reveal.visible { opacity:1; transform:translateY(0); }
+
+/* Elloling's spacious service-led layout, inspired by Zoho. */
+.hero {background:#f8fafc}.hero__title{letter-spacing:-1.8px}.hero__card{transform:none!important;border-radius:8px}.section{padding-top:88px;padding-bottom:88px}.svc-card{border-radius:8px;box-shadow:none}.nav{background:#fff}.services-grid{grid-template-columns:repeat(3,minmax(0,1fr))}@media(max-width:900px){.services-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}@media(max-width:600px){.services-grid{grid-template-columns:1fr}.section{padding-top:56px;padding-bottom:56px}.hero__title{letter-spacing:-1px}}
